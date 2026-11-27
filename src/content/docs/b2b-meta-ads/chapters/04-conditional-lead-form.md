@@ -69,6 +69,38 @@ Meta 即时表单默认会从用户早年注册 Facebook 时留下的信息中�
 
 ---
 
+## 4.5 跨品类改写：不同客单价与 MOQ 如何设计 Q2 拦截题？
+
+上文 Q2 使用的 `50 - 200 Units` 适合常规成品批发类目。如果你做的是**高客单大型机械（MOQ=1 台）**、**大宗原材/包材**或 **OEM 定制**，不能生搬“件数”拦截，而应把 Q2 改为对应行业真正区分“真买家 vs 问着玩散客”的硬门槛：
+
+| 品类模式 | Q2 拦截核心维度 | 放行选项（Go to Q3） | 劝退拦截选项（Close Form） |
+| :--- | :--- | :--- | :--- |
+| **常规成品批发**（如家具/灯具/消费硬件） | 首单起订数量（MOQ） | `20GP/40HQ 整柜` / `200-500` / `50-200 试单` / `大单前打样评估` | `Just 1 - 5 Pieces for Personal Use` |
+| **高客单工业设备**（MOQ=1 台，客单 `$10k+`） | **项目预算区间**或**预计采购时间表** | `>$30k` / `$10k-$30k` 或 `Within 1-3 months` / `Factory expansion project` | `Just researching / Under $2,000` 或 `No active project` |
+| **原材料 / 包材 / 化工辅料** | **采购计量单位（吨/卷/万只）** | `Full Container / 5+ Tons` / `1-5 Tons Trial` / `Lab Sample for Bulk Order` | `Small DIY / Personal Quantity (< 50kg)` |
+| **纯 OEM / ODM 模具定制厂** | **定制深度与图纸就绪度** | `Have 3D CAD/Samples ready` / `Need ODM structural tooling` | `Looking for 1-piece ready stock` |
+
+> 表中金额与数量为选项示例，发布前按企业接单范围校准。
+
+> 可直接复制的英文 Q2 改写模板见：[模板 08（第 4 节：跨品类速查表）](/b2b-meta-ads/templates/08-conditional-form-and-wa-link/)。
+
+---
+
+## 4.6 高发排错：开启条件逻辑后“花不出钱 / CPL 飙升”怎么办？
+
+开启 `Higher Intent` 和条件拦截后，如果花费缓慢或 CPL 上升，按下面顺序检查。
+
+1. **先用第 1 章算账法核对 CPQL，而不是只盯前端 CPL**：
+   - 用销售已完成核验的线索计算 CPQL。样本不足时，先记录花费和提交数。
+2. **确认不是前端素材 CTR 太低拖垮了出价**：
+   - 对照同类广告的展示、点击、表单打开和提交。如果进入表单前的流失明显，先按第 3 章测试素材开头。
+3. **确实预算消耗卡死时的“3 步阶梯降摩擦”顺序**（由轻到重，每次只改 1 项，预先约定观察窗口）：
+   - **第 1 步**：保留 Q1、Q2 硬拦截和 `Higher Intent`，仅把 **Q4 手打官网/工作邮箱**改为选填或在文案中加注 `(Optional if you prefer WhatsApp)`，或将 `Sample Evaluation` 选项放宽；
+   - **第 2 步**：若仍几乎无展示消耗，检查目标国家包是否过窄（例如只投了单个欧洲小国），适当合并同梯队语言相通国家（见第 2 章）；
+   - **第 3 步（底线不退）**：宁可在保持 Q1（区分 B/C 端身份）的前提下略微调低 MOQ 档位，也**绝不关闭 Q1 个人自用拦截**，防止垃圾信号污染像素。
+
+---
+
 ## 必备脱敏截图清单（`[Pending]`）
 
 - `[Pending: 待补充真实脱敏素材]` Meta Instant Form 后台开启 `Conditional Logic` 与设置 `Close Form` 分支的界面截图

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="loop-title loop-desc">
+  <title id="loop-title">外贸 B2B Meta 广告全链路闭环架构图</title>
+  <desc id="loop-desc">展示从前 3 秒素材过滤、条件逻辑表单拦截、Make 3 秒入库推送、业务 48 小时分级到 CAPI QualifiedLead 反向回传驯化算法的完整闭环。</desc>
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#60A5FA"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#F87171"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34D399"/>
+    </marker>
+    <style>
+      .t-title { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif; font-size: 13px; font-weight: 700; fill: #F8FAFC; }
+      .t-sub { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif; font-size: 11px; fill: #CBD5E1; }
+      .t-muted { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif; font-size: 10.5px; fill: #94A3B8; }
+      .t-red-title { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif; font-size: 12px; font-weight: 700; fill: #FCA5A5; }
+      .t-red-sub { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif; font-size: 10.5px; fill: #FECACA; }
+      .t-green { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif; font-size: 11.5px; font-weight: 600; fill: #A7F3D0; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="320" rx="12" fill="#0F172A" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- Node 1 -->
+  <rect x="20" y="26" width="164" height="96" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.2"/>
+  <rect x="20" y="26" width="164" height="4" rx="2" fill="#3B82F6"/>
+  <text x="102" y="54" text-anchor="middle" class="t-title">1. 素材即定向</text>
+  <text x="102" y="76" text-anchor="middle" class="t-sub">Broad 宽泛 · 国家隔离</text>
+  <text x="102" y="96" text-anchor="middle" class="t-muted">前 3s OCR 贴纸 + ASR 行话</text>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="184" y1="74" x2="205" y2="74" stroke="#60A5FA" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Node 2 -->
+  <rect x="209" y="26" width="164" height="96" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.2"/>
+  <rect x="209" y="26" width="164" height="4" rx="2" fill="#3B82F6"/>
+  <text x="291" y="54" text-anchor="middle" class="t-title">2. 条件逻辑表单</text>
+  <text x="291" y="76" text-anchor="middle" class="t-sub">Higher Intent + Q1/Q2</text>
+  <text x="291" y="96" text-anchor="middle" class="t-muted">Q4 强制手打官网 / 邮箱</text>
+
+  <!-- Arrow 2 -> Drop-off -->
+  <line x1="291" y1="122" x2="291" y2="156" stroke="#F87171" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-red)"/>
+  <rect x="191" y="160" width="200" height="58" rx="7" fill="#231419" stroke="#991B1B" stroke-width="1.2"/>
+  <text x="291" y="184" text-anchor="middle" class="t-red-title">C 端 / 低于 MOQ 硬拦截</text>
+  <text x="291" y="204" text-anchor="middle" class="t-red-sub">Close Form (End Card B · 不计 Lead)</text>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="373" y1="74" x2="394" y2="74" stroke="#60A5FA" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Node 3 -->
+  <rect x="398" y="26" width="164" height="96" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.2"/>
+  <rect x="398" y="26" width="164" height="4" rx="2" fill="#3B82F6"/>
+  <text x="480" y="54" text-anchor="middle" class="t-title">3. 零代码正向管道</text>
+  <text x="480" y="76" text-anchor="middle" class="t-sub">Make 3 秒写入在线表格</text>
+  <text x="480" y="96" text-anchor="middle" class="t-muted">群卡片推送 + 一键 WA 链接</text>
+
+  <!-- Arrow 3 -> 4 -->
+  <line x1="562" y1="74" x2="583" y2="74" stroke="#60A5FA" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Node 4 -->
+  <rect x="587" y="26" width="164" height="96" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.2"/>
+  <rect x="587" y="26" width="164" height="4" rx="2" fill="#3B82F6"/>
+  <text x="669" y="54" text-anchor="middle" class="t-title">4. 业务承接与分级</text>
+  <text x="669" y="76" text-anchor="middle" class="t-sub">5 分钟 WhatsApp 破冰</text>
+  <text x="669" y="96" text-anchor="middle" class="t-muted">48h 内核验标为 Qualified</text>
+
+  <!-- Arrow 4 -> 5 -->
+  <line x1="751" y1="74" x2="772" y2="74" stroke="#60A5FA" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Node 5 -->
+  <rect x="776" y="26" width="164" height="96" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.4"/>
+  <rect x="776" y="26" width="164" height="4" rx="2" fill="#10B981"/>
+  <text x="858" y="54" text-anchor="middle" class="t-title">5. CAPI 反向回传</text>
+  <text x="858" y="76" text-anchor="middle" class="t-sub">携带 15–16 位 Lead ID</text>
+  <text x="858" y="96" text-anchor="middle" class="t-muted">回传 QualifiedLead 事件</text>
+
+  <!-- Feedback Loop (5 -> 1) -->
+  <path d="M 858 122 L 858 266 L 102 266 L 102 128" fill="none" stroke="#10B981" stroke-width="2.2" marker-end="url(#arrow-green)"/>
+  <rect x="315" y="250" width="440" height="32" rx="16" fill="#064E3B" stroke="#10B981" stroke-width="1.2"/>
+  <text x="535" y="270" text-anchor="middle" class="t-green">7 天黄金窗口喂料 → 驯化检索排序模型（切换 Conversion Leads）</text>
+</svg>

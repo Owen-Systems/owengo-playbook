@@ -1,10 +1,10 @@
 ---
 title: 第 5 章：零代码数据闭环——秒级推送与 CAPI 回传驯化算法
-description: 通过 Make + 飞书多维表格 / Google Sheets 搭建 3 秒入库推送与 48 小时内 QualifiedLead 反向 CAPI 回传管道。
+description: 通过 Make + 飞书多维表格 / Google Sheets 搭建 3 秒入库推送与 48 小时内 QualifiedLead 反向 CAPI 回传管道，含小预算替代策略与验收流程。
 ---
 
-:::tip[章节状态：V0.1 已迁入核心 SOP 草稿（附件 D）]
-本章已完整迁入初始 SOP 草稿中的表格字段规范、电话格式防报错处理、一键 WhatsApp 公式、Make 正反向工作流节点要求以及 CAPI `QualifiedLead` 核心参数；BM 授权截图、Make 节点连线实拍图与完整群机器人 JSON 代码将在 V0.3 补充。
+:::tip[章节状态：V0.1.1 已迁入核心 SOP 草稿（附件 D）并补全排错与双栈方案]
+本章已完整迁入初始 SOP 草稿中的表格字段规范、电话格式防报错处理、一键 WhatsApp 公式、Make 正反向工作流节点要求及 CAPI `QualifiedLead` 核心参数，并在 V0.1.1 补齐了全链路架构图、小预算适配策略、国内飞书对接路径与 4 步测试验收流程；实盘连线截图将在 V0.3 补充。
 :::
 
 ## 本章解决的核心痛点
@@ -26,6 +26,8 @@ B 端买家的采购决策往往在多供应商之间同时展开。当客户刚
 ---
 
 ## 5.2 Make + 飞书多维表格 / Google Sheets 零代码架构
+
+![外贸 B2B Meta 广告零代码数据闭环架构](/images/b2b-meta-loop.svg)
 
 整套零代码链路分为两条独立管道：
 - **正向管道（Forward Pipeline）**：监听 Meta 新线索 → 清洗格式并写入在线表格 → 触发飞书/企微群机器人卡片实时通知业务员；
@@ -79,6 +81,27 @@ B 端买家的采购决策往往在多供应商之间同时展开。当客户刚
 - **冷启动初期**：由于账户还没有足够的高质量回传样本，Ad Set 优化目标应先使用 `Maximize number of leads`（普通线索量），靠条件逻辑表单挡住 C 端；
 - **切换时机（参考阈值）**：当你的 Dataset 在真实投放中累计接收到 **30~50 条** 经过业务员筛选并成功通过 CAPI 回传的 `QualifiedLead` 事件后，即可新建或复制广告组，将优化目标正式切换为 **`Maximize number of conversion leads`（最大化转化线索数量）**；
 - **7 天黄金窗口约束**：Meta 官方模型对 CRM 线索阶段事件有时效性敏感度，业务端尽量在 **48 小时内** 完成初筛回传，最长不要拖过 **7 天**，否则回传信号对当前在投广告组的调优权重会明显衰减。
+
+---
+
+## 5.6 实战排错、中小预算适配与国内飞书团队落地路径
+
+### 1. 中小预算或高客单低频账户，怎么跑通 CAPI？
+如果每周经销售确认的报价或成交线索较少，先记录深层事件的频率，再评估是否测试频率更高、可核实的合格信号：
+- **先用“浅层合格事件”喂料**：将“通过第 4 章条件表单放行 + **Q4 填写了有效企业域名邮箱/官网（非 Gmail/Hotmail）**”或“**WhatsApp 破冰后客户产生首次实质回复**”定义为 `QualifiedLead`，先把每周回传样本密度拉到系统可学习水平；
+- **长期积累**：在累积足够样本并确认回传口径稳定后，再测试新建 `Conversion Leads` 广告组并与原组 A/B 并行对比，不直接一刀切替换正在出单的组。
+
+### 2. 海外 `Google Sheets` vs 国内 `飞书多维表格` 实操差异
+- **海外技术栈（最省心）**：`Make + Google Sheets` 拥有官方原生触发器（`Watch Changes` / `Perform a Function`），节点配置最简单；适合全员可顺畅访问 Google Workspace 的外贸团队。
+- **国内业务团队（飞书多维表格）**：Make 目前通常不提供开箱即用的飞书多维表格官方模块。实操有两条推荐路径：
+  1. **Make + HTTP 请求调用飞书开放平台 API**（先请求 `tenant_access_token`，再调用多维表格新增记录接口；反向可通过飞书多维表格“自动化流程 → 发送 HTTP Webhook 请求”反推回 Make 的 Custom Webhook 触发 CAPI，无需每分钟轮询）；
+  2. **自建 n8n / 集简云中转**：若团队内部已有 n8n，可直接用 n8n 连接 Meta Graph API 与飞书多维表格。
+
+### 3. 上线前必须跑通的 4 步测试验收（别等花钱后才发现断链）
+1. **BM 权限核验**：确认 `Leads Access` 已授权当前 Make 连接人（否则新表单一发布就报错 `Insufficient permission`）；
+2. **使用 Meta 官方测试工具发测试单**：打开 Meta Developers 的 **Lead Ads Testing Tool**，选中你的 Page 和条件逻辑 Form，手动发送一条模拟测试线索；
+3. **检查正向入库**：记录实际入库耗时，并确认 **文本类型的 `Meta Lead ID` 与来源值逐字符一致**、WhatsApp 号码未报错、群机器人卡片正常弹出；
+4. **检查反向 CAPI 入库**：在表格中手动将该测试行标为 `有效B端(Qualified)`，触发 Make 反向工作流（若测试工具的虚拟 `Lead ID` 在 Events Manager 中提示无对应真实广告事件属于正常提示，只要 HTTP 响应为 `200` 且 `events_received: 1` 即证明管道参数与 Token 连通；实盘首条真实线索回传后再去 Events Manager 核对绿色 `Server` 统计）。
 
 ---
 

@@ -77,3 +77,22 @@ description: 对应第 5 章：正向 3 秒群通知蓝图、反向 QualifiedLea
 
 ### 算法目标切换检查点
 - 累计成功回传 **`30~50` 条** `QualifiedLead` 后，在 Ad Set 将优化目标从 `Maximize number of leads` 切换为 **`Maximize number of conversion leads`**。
+
+---
+
+## 3. 海外栈（Google Sheets）vs 国内团队栈（飞书多维表格）选型与对接要点
+
+| 对接环节 | 海外栈：`Make + Google Sheets` | 国内栈：`Make + 飞书多维表格` |
+| :--- | :--- | :--- |
+| **正向入库** | 直接用 Make 官方 `Google Sheets - Add a Row` 模块，电话列开启 `VALUE` 原样输入并在前方拼接 `'` | Make 通过 `HTTP` 模块调用飞书 `tenant_access_token` + 多维表格新增记录 API（或通过飞书机器人/集简云/n8n 接收 Webhook 写入） |
+| **反向触发 CAPI** | Make 使用 `Google Sheets - Watch Changes` 或定时筛选 `Qualified` 且未回传的行 | 推荐在飞书多维表格内配置 **“自动化流程：当字段状态改为 `有效B端(Qualified)` 且 `CAPI 状态` 为空时 → 发送 HTTP POST 至 Make Custom Webhook”**，零轮询延迟极低 |
+| **格式避坑重点** | 把 `Meta Lead ID` 所在整列格式预先设为 **Plain Text（纯文本）** | 飞书多维表格 `Meta Lead ID` 字段务必选用 **文本类型**，禁止使用“数字”字段（防 16 位精度丢失） |
+
+---
+
+## 4. 上线前 4 步实测验收清单
+
+- [ ] **01 授权核验**：BM → `Integrations` → `Leads Access` 已勾选当前连接的 Make 应用及对应操作账号。
+- [ ] **02 模拟发单**：在 Meta **Lead Ads Testing Tool** 选择目标 Page 与条件逻辑 Form 提交一条模拟线索。
+- [ ] **03 正向落库核对**：记录实际入库耗时，核对文本类型的 `Meta Lead ID` 与来源值逐字符一致，WhatsApp 清洗公式生成有效链接，群机器人卡片正常到达。
+- [ ] **04 反向连通核对**：将测试行改为 `有效B端(Qualified)`，Make 调用 CAPI 返回 HTTP `200`（`events_received: 1`），且表格 `CAPI 回传状态` 自动锁定为“已回传”，再次触发不会重复发送。

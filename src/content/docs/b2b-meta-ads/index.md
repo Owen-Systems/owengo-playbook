@@ -1,9 +1,9 @@
 ---
 title: 第一册总览：《外贸 B2B Meta 广告实战指南》
-description: OwenGo Playbook 第一册（V0.1）：聚焦 Meta Andromeda 算法下的 B2B 精准获客闭环（Broad + Conditional Logic + CAPI），含 7 章实战、12 份模板与脱敏实验区。
+description: OwenGo Playbook 第一册（V0.1.1）：聚焦 Meta Andromeda 算法下的 B2B 精准获客闭环（Broad + Conditional Logic + CAPI），含 7 章实战、12 份模板与脱敏实验区。
 ---
 
-:::note[所属系列：OwenGo Playbook 第一册 · 当前版本 V0.1]
+:::note[所属系列：OwenGo Playbook 第一册 · 当前版本 V0.1.1 · 2026-11-27 更新]
 本手册独立挂载于 `/b2b-meta-ads/`，为 **Owen 的出海实战活文档（Living Playbook）** 的第一册主推实战指南。站点预留了独立路由结构，后续同域名 `https://playbook.owengo.space` 下新增其他出海专题手册时，本手册所有 URL 均可长期保持稳定不变。
 :::
 

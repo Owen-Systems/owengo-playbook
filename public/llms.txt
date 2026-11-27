@@ -1,24 +1,24 @@
 # OwenGo Playbook — Owen 的出海实战活文档（Living Playbook）
 
-> 当前版本：V0.1 | 语言：简体中文 (zh-CN) | 正式域名：https://playbook.owengo.space
+> 当前版本：V0.1.1 | 语言：简体中文 (zh-CN) | 正式域名：https://playbook.owengo.space
 > 出品：Owen Systems（Owen 主理） | 主站：https://owengo.space | 仓库：https://github.com/Owen-Systems/owengo-playbook
 > 定位：Owen 的出海实战活文档（Living Playbook）。当前第一册《外贸 B2B Meta 广告实战指南》独立挂载于 `/b2b-meta-ads/`，围绕 Meta 现行广告检索排序机制，提供“素材即定向（Broad）+ 表单加摩擦（Conditional Logic）+ 转化回传（CAPI）”全链路可执行 SOP 与可复制模板，并预留多册扩展空间。
-> 数据规范：所有真实投放实验记录均须严格脱敏并标注 `[Observed]`；SOP 默认参数标注为参考阈值；未补充实测数据处标注 `[Pending]`。
+> 数据规范：所有真实投放实验记录均须严格脱敏并标注 `[Observed]`；SOP 默认参数与算术对照表标注为参考阈值/推演模型；未补充实测数据处标注 `[Pending]`。
 
 ## 站点入口与第一册总览
 
 - [Owen 主站 / 项目总览](https://owengo.space): Owen Systems 主理人主站与项目总索引
-- [首页 · OwenGo Playbook 总览](/): 站点定位、第一册主推入口与核心三角方法论
+- [首页 · OwenGo Playbook 总览](/): 站点定位、第一册主推入口、全链路架构图与核心三角方法论
 - [第一册总览：《外贸 B2B Meta 广告实战指南》](/b2b-meta-ads/): 第一册完整目录、核心三角与阅读路径
-- [版本更新日志（Changelog）](/b2b-meta-ads/changelog/): V0.1 初始化记录与后续迭代计划
+- [版本更新日志（Changelog）](/b2b-meta-ads/changelog/): V0.1 / V0.1.1 更新记录与后续迭代计划
 
 ## 第一册核心实战（7 章）
 
-- [第 1 章：底层重构——为什么你投的 Meta 全是 C 端散客与垃圾询盘？](/b2b-meta-ads/chapters/01-algorithm-and-mindset/): Andromeda 检索逻辑、B2B 获客三大死穴、三类买家画像与 2026 B2B 投放新三角
-- [第 2 章：防跑偏基建——国家梯度划分与冷启动沙盒架构](/b2b-meta-ads/chapters/02-account-and-sandbox/): Page 背书、Tier 1/2/3 国家拆分与必排黑名单、ABO 冷启动沙盒参数、三层级命名规范
+- [第 1 章：底层重构——为什么你投的 Meta 全是 C 端散客与垃圾询盘？](/b2b-meta-ads/chapters/01-algorithm-and-mindset/): 适用边界劝退、Andromeda 检索逻辑、B2B 获客三大死穴、三类买家画像与 CPL/CPQL 算账推演模型
+- [第 2 章：防跑偏基建——国家梯度划分与冷启动沙盒架构](/b2b-meta-ads/chapters/02-account-and-sandbox/): Page 背书、Tier 1/2/3 国家拆分与黑名单、ABO 沙盒参数、三层级命名规范与防封/隐私合规红线
 - [第 3 章：素材即定向——用前 3 秒“劝退 C 端，吸住大 B”](/b2b-meta-ads/chapters/03-creative-as-targeting/): 前 3 秒顶部贴纸与 ASR 行话识别、三大/四大 B2B 切角完整中英文分镜脚本、B-Roll 与静态轮播图兜底
-- [第 4 章：询盘防火墙——高意向条件表单（Conditional Logic）配置实战](/b2b-meta-ads/chapters/04-conditional-lead-form/): Higher Intent 设置、Q1-Q4 条件逻辑硬拦截、手打官网/工作邮箱、双结局感谢页与 WhatsApp 跳转
-- [第 5 章：零代码数据闭环——秒级推送与 CAPI 回传驯化算法](/b2b-meta-ads/chapters/05-nocode-capi-loop/): 5 分钟响应法则、Make + 飞书/Google Sheets 正反向管道、Meta Lead ID 归因与 `QualifiedLead` CAPI 回传
+- [第 4 章：询盘防火墙——高意向条件表单（Conditional Logic）配置实战](/b2b-meta-ads/chapters/04-conditional-lead-form/): Higher Intent 设置、Q1-Q4 硬拦截、跨品类 Q2 改写对照、双结局感谢页及花不出钱/CPL 飙升排错梯次
+- [第 5 章：零代码数据闭环——秒级推送与 CAPI 回传驯化算法](/b2b-meta-ads/chapters/05-nocode-capi-loop/): 5 分钟响应法则、Make + Google Sheets / 国内飞书多维表格双栈架构、小预算替代信号与上线 4 步测试验收
 - [第 6 章：科学放量与夜间风控——从 ABO 测试到 CBO 常青池](/b2b-meta-ads/chapters/06-scaling-and-risk-rules/): 48-72h 赛马裁决、Post ID 提取与 Use Existing Post、CBO 常青池及 3 套自动化风控规则
 - [第 7 章：临门一脚——外贸业务端承接、背调与 48 小时分级 SOP](/b2b-meta-ads/chapters/07-sales-follow-up-sop/): 5 分钟 WhatsApp 破冰公式与模板、3 分钟背调法、48 小时线索分级 SLA 与 7 天追单节奏
 
@@ -32,9 +32,9 @@
 - [05 4 大切角 B2B 短视频中英文分镜脚本库](/b2b-meta-ads/templates/05-video-script-library/): 气动升降桌 3 套完整中英文脚本 + 3 条拍摄剪辑铁律 + 切角四占位槽位
 - [06 工厂车间与实验室 B-Roll 10 个必拍镜头清单](/b2b-meta-ads/templates/06-factory-broll-shotlist/): 覆盖激光切割、自动化焊接、破坏测试与装柜等 10 镜工业质感采集清单
 - [07 Meta B2B 英文广告文案库](/b2b-meta-ads/templates/07-english-ad-copy-library/): Primary Text、Headline 与 CTA 英文结构化文案模板
-- [08 高意向条件逻辑英文表单与 WhatsApp 预填链接模板](/b2b-meta-ads/templates/08-conditional-form-and-wa-link/): Q1-Q4 英文题目、分支规则、End Card A/B 文案与 `wa.me` 链接格式
+- [08 高意向条件逻辑英文表单与 WhatsApp 预填链接模板](/b2b-meta-ads/templates/08-conditional-form-and-wa-link/): Q1-Q4 英文题目、分支规则、End Card A/B、`wa.me` 链接及大型机械/原材/OEM 跨品类 Q2 改写速查表
 - [09 Meta 询盘管理与 CAPI 状态表字段模板](/b2b-meta-ads/templates/09-lead-tracker-capi-sheet/): Lead ID 归因字段、国际区号单引号防报错与 `REGEXREPLACE` 一键 WhatsApp 公式
-- [10 Make + CAPI 正反向配置蓝图与群机器人卡片](/b2b-meta-ads/templates/10-make-capi-webhook-blueprint/): Make 正向 3 秒推送与反向 `QualifiedLead` CAPI 回传字段清单及群通知 JSON 模板
+- [10 Make + CAPI 正反向配置蓝图与群机器人卡片](/b2b-meta-ads/templates/10-make-capi-webhook-blueprint/): Make 正反向字段参数、海外 Google Sheets vs 国内飞书多维表格对接要点及 4 步实测验收清单
 - [11 赛马止损决策表、3 套自动化规则与 B2B 数据列](/b2b-meta-ads/templates/11-automated-rules-and-reporting/): 48-72h 裁决标准、3 套 Automated Rules 参数表与周报核心指标列
 - [12 WhatsApp 5 分钟破冰、7 天追单话术与 48h 分级标准书](/b2b-meta-ads/templates/12-whatsapp-scripts-and-sla/): 成品批发英文破冰话术、`Qualified/Quoted/Junk` 分级 SLA 与多触点追单表
 

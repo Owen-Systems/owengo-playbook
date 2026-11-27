@@ -34,7 +34,7 @@ description: 对应第 4 章：Higher Intent + Conditional Logic Q1–Q4 完整�
 - **Description**：`Our export specialist has received your inquiry. Tap below to get our 2026 B2B Catalog & Tiered FOB Price List directly on WhatsApp.`
 - **Call-to-Action 按钮类型**：`View Website`（填入下方 `wa.me` 链接）
 - **CTA 按钮文字**：`Get Price List on WhatsApp Now`
-- **预填话术链接模板**（将 `你的纯数字手机号` 替换为不含 `+` 号和空格的国际区号+号码，例如 `8613800138000`）：
+- **预填话术链接模板**（将 `你的纯数字手机号` 替换为不含 `+` 号和空格的国际区号+号码）：
 
 ```text
 https://wa.me/你的纯数字手机号?text=Hi,%20I%20just%20submitted%20the%20B2B%20form%20on%20Facebook.%20Please%20send%20me%20the%202026%20Wholesale%20Catalog%20and%20MOQ%20Price%20List.%20My%20company%20name%20is:%20
@@ -45,3 +45,36 @@ https://wa.me/你的纯数字手机号?text=Hi,%20I%20just%20submitted%20the%20B
 - **Headline**：`B2B Wholesale & Commercial Projects Only`
 - **Description**：`Thank you for your interest. Our factory focuses exclusively on wholesale, OEM/ODM, and commercial bulk orders (MOQ 50+ units) and does not handle single-piece retail orders directly here.`
 - **CTA 按钮文字**：`Visit Official Website`（跳转至你的独立站首页或零售渠道页，不给业务员 WhatsApp，也不触发合格 Lead 转化）。
+
+---
+
+## 4. 跨品类 Q2 拦截题英文改写速查表
+
+若你的产品并非“按件数批发的标准成品”，可参考下列问法替换上方 Q2。表内金额和数量为选项示例，发布前按企业实际接单范围校准。
+
+### 场景 A：高客单工业设备（MOQ = 1 台，按项目预算拦截）
+- **Q2 Question**：`What is your estimated project budget for this equipment?`
+- **Go to Q3（放行）**：
+  - `Over $50,000 USD (Full Production Line)`
+  - `$15,000 - $50,000 USD (Single Machine / Upgrade)`
+  - `$5,000 - $15,000 USD (Entry Commercial Unit)`
+- **Close Form（End Card B 拦截）**：
+  - `Under $2,000 USD / Home Hobby Use`
+
+### 场景 B：大宗原材料 / 包装材料（按吨 / 卷 / 万件拦截）
+- **Q2 Question**：`What is your estimated initial order volume?`
+- **Go to Q3（放行）**：
+  - `Full Container Load (10+ Tons / Bulk)`
+  - `1 - 5 Tons (Trial Commercial Order)`
+  - `Paid Commercial Sample for Bulk Evaluation`
+- **Close Form（End Card B 拦截）**：
+  - `Just a Few Pieces / Personal DIY Use`
+
+### 场景 C：纯 OEM / ODM 定制工厂（按图纸/开模准备度拦截）
+- **Q2 Question**：`Where are you in your custom OEM/ODM sourcing process?`
+- **Go to Q3（放行）**：
+  - `Ready with CAD Drawings / Physical Samples`
+  - `Looking for ODM Customization (MOQ 100+ PCS)`
+  - `Evaluating Suppliers for Upcoming Launch`
+- **Close Form（End Card B 拦截）**：
+  - `Looking to Buy 1 - 2 Ready-Made Pieces Only`

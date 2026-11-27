@@ -2,9 +2,37 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+const siteUrl = 'https://playbook.owengo.space';
+const ogImageUrl = `${siteUrl}/og-cover.png`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'Owen Systems',
+      url: 'https://owengo.space',
+      sameAs: [
+        'https://owengo.space',
+        'https://github.com/Owen-Systems/owengo-playbook',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      name: 'OwenGo Playbook',
+      url: siteUrl,
+      inLanguage: 'zh-CN',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Owen Systems',
+      },
+    },
+  ],
+};
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://playbook.owengo.space',
+  site: siteUrl,
 
   integrations: [
     starlight({
@@ -29,6 +57,48 @@ export default defineConfig({
             title: 'LLMs.txt',
           },
         },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image',
+            content: ogImageUrl,
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image:width',
+            content: '1200',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image:height',
+            content: '630',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'twitter:card',
+            content: 'summary_large_image',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'twitter:image',
+            content: ogImageUrl,
+          },
+        },
+        {
+          tag: 'script',
+          attrs: {
+            type: 'application/ld+json',
+          },
+          content: JSON.stringify(jsonLd),
+        },
       ],
       social: [
         {
@@ -50,7 +120,7 @@ export default defineConfig({
             {
               label: '版本更新日志（Changelog）',
               slug: 'b2b-meta-ads/changelog',
-              badge: { text: 'V0.1', variant: 'note' },
+              badge: { text: 'V0.1.1', variant: 'note' },
             },
             {
               label: '核心实战（7 章）',
@@ -87,6 +157,7 @@ export default defineConfig({
             },
             {
               label: '配套模板库（12 份）',
+              collapsed: true,
               items: [
                 { label: '模板总览与索引', slug: 'b2b-meta-ads/templates' },
                 {

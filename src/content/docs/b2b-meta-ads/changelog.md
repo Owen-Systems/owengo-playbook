@@ -7,6 +7,21 @@ description: 记录《外贸 B2B Meta 广告实战指南》每个版本的章节
 
 ---
 
+## V0.1.1（2026-11-27）— 深度内容补强与门面精修
+
+### 已完成内容
+1. **核心章节实战边界与排错补强**：
+   - **[第 1 章](/b2b-meta-ads/chapters/01-algorithm-and-mindset/)**：补充适用范围与 CPL、CPQL 核算公式，预留实盘对照表。
+   - **[第 2 章](/b2b-meta-ads/chapters/02-account-and-sandbox/)**：新增“2.6 账户防封、合规红线与资产备份”，覆盖英文 Privacy Policy URL、医学/专利措辞拒审雷区及 BM 像素与备用广告账户隔离策略。
+   - **[第 4 章](/b2b-meta-ads/chapters/04-conditional-lead-form/) & [模板 08](/b2b-meta-ads/templates/08-conditional-form-and-wa-link/)**：新增“跨品类 Q2 拦截题改写对照表”（覆盖高客单设备 `MOQ=1`、大宗原材/包材、OEM/ODM 定制）以及“高摩擦导致花不出钱 / CPL 飙升”的 3 步阶梯排查路径。
+   - **[第 5 章](/b2b-meta-ads/chapters/05-nocode-capi-loop/) & [模板 10](/b2b-meta-ads/templates/10-make-capi-webhook-blueprint/)**：新增小预算账户 CAPI 中间事件替代方案、海外 `Google Sheets` 与国内`飞书多维表格`双栈落地差异说明，以及上线前 4 步测试验收清单。
+2. **视觉、门面与 SEO/GEO 实体强化**：
+   - 新增全链路闭环架构图（`/images/b2b-meta-loop.svg`）嵌入首页与第 5 章，直观串联素材、表单、Make 与 CAPI 反馈环；
+   - 新增 `1200×630` 静态分享封面图（`/og-cover.png`）、自定义中文 `404.md`、以及绑定 `Owen Systems` 与 `https://owengo.space` 的 JSON-LD 结构化数据；
+   - 将侧边栏“配套模板库（12 份）”设为默认折叠，突出 7 大主线章节，并清理 `README.md` 未填社媒占位符。
+
+---
+
 ## V0.1（2026-11-27）— 文档站初始化、架构对齐与核心 SOP 迁移
 
 ### 已完成内容

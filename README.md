@@ -1,6 +1,6 @@
 # OwenGo Playbook — Owen 的出海实战活文档（Living Playbook）
 
-> **当前版本：`V0.1`（第一册上线初始化完成）** ｜ **Owen Systems 出品 · Owen 主理**
+> **当前版本：`V0.1.1`（深度内容补强与门面精修）** ｜ **Owen Systems 出品 · Owen 主理**
 >
 > **Owen 主站**：[https://owengo.space](https://owengo.space) ｜ **在线文档**：[https://playbook.owengo.space](https://playbook.owengo.space) ｜ **GitHub**：[Owen-Systems/owengo-playbook](https://github.com/Owen-Systems/owengo-playbook)
 >
@@ -21,9 +21,9 @@
 | 模块 | 仓库路径 | 在线路由 | 内容说明 |
 | :--- | :--- | :--- | :--- |
 | **第一册总览** | `src/content/docs/b2b-meta-ads/index.md` | `/b2b-meta-ads/` | 《外贸 B2B Meta 广告实战指南》总目录与阅读索引 |
-| **核心实战（7 章）** | `src/content/docs/b2b-meta-ads/chapters/` | `/b2b-meta-ads/chapters/` | 第 1 章底层重构 → 第 2 章国家梯队与沙盒 → 第 3 章前 3 秒防 C 端素材 → 第 4 章条件逻辑表单 → 第 5 章 Make + CAPI 闭环 → 第 6 章 CBO 放量与风控 → 第 7 章业务承接与 48h 分级 |
-| **配套模板库（12 份）** | `src/content/docs/b2b-meta-ads/templates/` | `/b2b-meta-ads/templates/` | 覆盖买家画像、国家黑名单、命名生成器、上线自检、中英文视频脚本、B-Roll 清单、文案库、条件表单与 WA 链接、询盘管理表、Make/CAPI 蓝图、自动化规则、WhatsApp 破冰与分级 SLA |
-| **脱敏实战实验区** | `src/content/docs/b2b-meta-ads/experiments/` | `/b2b-meta-ads/experiments/` | 沉淀带 `[Observed]` 标签与严格脱敏处理的实盘 A/B 对照实验（`V0.1` 已备好标准实验记录模板） |
+| **核心实战（7 章）** | `src/content/docs/b2b-meta-ads/chapters/` | `/b2b-meta-ads/chapters/` | 第 1 章底层重构（含适用边界与 CPQL 算账模型）→ 第 2 章国家梯队与合规防封 → 第 3 章前 3 秒防 C 端素材 → 第 4 章条件逻辑表单与跨品类改写 → 第 5 章 Make/飞书 + CAPI 闭环 → 第 6 章 CBO 放量与风控 → 第 7 章业务承接与 48h 分级 |
+| **配套模板库（12 份）** | `src/content/docs/b2b-meta-ads/templates/` | `/b2b-meta-ads/templates/` | 覆盖买家画像、国家黑名单、命名生成器、上线自检、中英文视频脚本、B-Roll 清单、文案库、跨品类条件表单与 WA 链接、询盘管理表、海外/国内双栈 Make/CAPI 蓝图、自动化规则、WhatsApp 破冰与分级 SLA |
+| **脱敏实战实验区** | `src/content/docs/b2b-meta-ads/experiments/` | `/b2b-meta-ads/experiments/` | 沉淀带 `[Observed]` 标签与严格脱敏处理的实盘 A/B 对照实验（已备好 `EXP` 标准实验记录模板） |
 | **版本更新日志** | `src/content/docs/b2b-meta-ads/changelog.md` | `/b2b-meta-ads/changelog/` | 追踪每次 SOP 修订、新增模板与实验结论的版本演进 |
 
 ---
@@ -31,7 +31,7 @@
 ## 数据真实性承诺
 
 - 本库严禁编造任何投放数据、后台截图或成交案例。
-- 所有实测数据与复盘案例在收录前均须经过脱敏核查并显式标注 `[Observed]`（附观测周期与样本量）；暂无实测数据的位置统一标注 `[Pending]`，SOP 默认阈值均标明“参考阈值”。
+- 所有实测数据与复盘案例在收录前均须经过脱敏核查并显式标注 `[Observed]`（附观测周期与样本量）；暂无实测数据的位置统一标注 `[Pending]`，SOP 默认阈值与算术模型均标明“参考阈值 / 推演模型”。
 - 本地源草稿（`*.docx`）已通过 `.gitignore` 严格隔离，永不进入公开仓库提交。
 - 协作约束详见根目录 [`AGENTS.md`](./AGENTS.md)。
 
@@ -68,9 +68,6 @@ npm run preview
 
 ## 持续迭代与交流
 
-- **Owen 主站 / 项目总览**：[https://owengo.space](https://owengo.space)
+- **Owen 主站 / 项目总览**：[https://owengo.space](https://owengo.space)（主理人介绍与联络方式统一收口于此）
 - **追踪更新**：欢迎在 [GitHub 仓库](https://github.com/Owen-Systems/owengo-playbook) 点击 **Star** 订阅后续实盘更新。
-- **轻资产交流入口（占位，后续按需补充）**：
-  - 公众号 / 微信：`[待补充]`
-  - X (Twitter)：`[待补充]`
-  - 纠错与交流：欢迎提交 [GitHub Issue](https://github.com/Owen-Systems/owengo-playbook/issues) 或参照 [`AGENTS.md`](./AGENTS.md) 发起 Pull Request。
+- **纠错与交流**：欢迎提交 [GitHub Issue](https://github.com/Owen-Systems/owengo-playbook/issues) 或参照 [`AGENTS.md`](./AGENTS.md) 发起 Pull Request。
