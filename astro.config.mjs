@@ -32,6 +32,11 @@ export default defineConfig({
       ],
       social: [
         {
+          icon: 'external',
+          label: 'Owen 主站 / 项目总览',
+          href: 'https://owengo.space',
+        },
+        {
           icon: 'github',
           label: 'GitHub',
           href: 'https://github.com/Owen-Systems/owengo-playbook',

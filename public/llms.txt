@@ -1,12 +1,13 @@
 # OwenGo Playbook — Owen 的出海实战活文档（Living Playbook）
 
 > 当前版本：V0.1 | 语言：简体中文 (zh-CN) | 正式域名：https://playbook.owengo.space
-> 出品：Owen Systems（Owen 主理） | 仓库：https://github.com/Owen-Systems/owengo-playbook
+> 出品：Owen Systems（Owen 主理） | 主站：https://owengo.space | 仓库：https://github.com/Owen-Systems/owengo-playbook
 > 定位：Owen 的出海实战活文档（Living Playbook）。当前第一册《外贸 B2B Meta 广告实战指南》独立挂载于 `/b2b-meta-ads/`，围绕 Meta 现行广告检索排序机制，提供“素材即定向（Broad）+ 表单加摩擦（Conditional Logic）+ 转化回传（CAPI）”全链路可执行 SOP 与可复制模板，并预留多册扩展空间。
 > 数据规范：所有真实投放实验记录均须严格脱敏并标注 `[Observed]`；SOP 默认参数标注为参考阈值；未补充实测数据处标注 `[Pending]`。
 
 ## 站点入口与第一册总览
 
+- [Owen 主站 / 项目总览](https://owengo.space): Owen Systems 主理人主站与项目总索引
 - [首页 · OwenGo Playbook 总览](/): 站点定位、第一册主推入口与核心三角方法论
 - [第一册总览：《外贸 B2B Meta 广告实战指南》](/b2b-meta-ads/): 第一册完整目录、核心三角与阅读路径
 - [版本更新日志（Changelog）](/b2b-meta-ads/changelog/): V0.1 初始化记录与后续迭代计划

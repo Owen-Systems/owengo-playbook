@@ -2,7 +2,7 @@
 
 > **当前版本：`V0.1`（第一册上线初始化完成）** ｜ **Owen Systems 出品 · Owen 主理**
 >
-> **在线文档**：[https://playbook.owengo.space](https://playbook.owengo.space) ｜ **GitHub**：[Owen-Systems/owengo-playbook](https://github.com/Owen-Systems/owengo-playbook)
+> **Owen 主站**：[https://owengo.space](https://owengo.space) ｜ **在线文档**：[https://playbook.owengo.space](https://playbook.owengo.space) ｜ **GitHub**：[Owen-Systems/owengo-playbook](https://github.com/Owen-Systems/owengo-playbook)
 >
 > **定位**：Owen 的出海实战活文档（Living Playbook）——按主题分册沉淀、随一线实战实验持续迭代。**当前第一册聚焦《外贸 B2B Meta 广告实战指南》**，独立挂载于 [`/b2b-meta-ads/`](https://playbook.owengo.space/b2b-meta-ads/)，为后续同域名下拓展更多出海专题手册预留独立路由空间。
 
@@ -68,6 +68,7 @@ npm run preview
 
 ## 持续迭代与交流
 
+- **Owen 主站 / 项目总览**：[https://owengo.space](https://owengo.space)
 - **追踪更新**：欢迎在 [GitHub 仓库](https://github.com/Owen-Systems/owengo-playbook) 点击 **Star** 订阅后续实盘更新。
 - **轻资产交流入口（占位，后续按需补充）**：
   - 公众号 / 微信：`[待补充]`
