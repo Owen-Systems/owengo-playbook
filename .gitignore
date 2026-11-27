@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# OS & Editor artifacts
+.DS_Store
+Thumbs.db
+
+# Environment & logs
+.env
+.env.*
+!.env.example
+npm-debug.log*
+
+# Local source drafts (never commit or push to public repo)
+*.docx

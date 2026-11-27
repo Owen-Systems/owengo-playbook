@@ -1,0 +1,41 @@
+/* 克制专业的工业工程级中文排版样式（无浮夸动画） */
+
+:root {
+  --sl-font: 'Inter', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --sl-font-mono: 'JetBrains Mono', 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* 暗色主题默认稳重工业蓝灰 */
+  --sl-color-accent-low: #172536;
+  --sl-color-accent: #3b7dd8;
+  --sl-color-accent-high: #b8d4f8;
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: #e6effa;
+  --sl-color-accent: #1d4ed8;
+  --sl-color-accent-high: #172c5e;
+}
+
+.sl-markdown-content {
+  line-height: 1.75;
+}
+
+.sl-markdown-content table {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9375rem;
+}
+
+.sl-markdown-content th,
+.sl-markdown-content td {
+  padding: 0.6rem 0.75rem;
+}
+
+.hero h1 {
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.hero .tagline {
+  line-height: 1.65;
+  max-width: 44rem;
+}
