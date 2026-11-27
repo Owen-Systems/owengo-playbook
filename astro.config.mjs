@@ -34,7 +34,7 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/0Xchris007/owengo-playbook',
+          href: 'https://github.com/Owen-Systems/owengo-playbook',
         },
       ],
       sidebar: [

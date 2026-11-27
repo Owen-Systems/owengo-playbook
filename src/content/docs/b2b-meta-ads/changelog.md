@@ -13,7 +13,7 @@ description: 记录《外贸 B2B Meta 广告实战指南》每个版本的章节
 1. **工程与多册扩展底座**：
    - 基于 Astro Starlight 完成纯静态简体中文文档站搭建，正式域名锁定为 `https://playbook.owengo.space`；
    - 将《外贸 B2B Meta 广告实战指南》作为 OwenGo Playbook 第一册独立挂载于 `/b2b-meta-ads/` 路径下，预留同域名扩展多册实战指南的路由空间；
-   - 启用站内静态全文检索（Pagefind）、`robots.txt`、`sitemap-index.xml`、面向 AI 检索的 `/llms.txt` 与 GitHub 仓库入口（`0Xchris007/owengo-playbook`）。
+   - 启用站内静态全文检索（Pagefind）、`robots.txt`、`sitemap-index.xml`、面向 AI 检索的 `/llms.txt` 与 GitHub 仓库入口（`Owen-Systems/owengo-playbook`）。
 2. **全书 7 大核心章节结构搭建**：完成第 1 章至第 7 章完整框架与“必备脱敏截图（`[Pending]`）”清单初始化。
 3. **核心 SOP 草稿（附件 A–D）正式迁入**：
    - **第 2 章 / 模板 02、03、04、11**：迁入 Tier 1/2/3 国家梯队划分与必排黑名单、ABO 冷启动沙盒参数、三层级广告命名规范与字典、冷启动 12 项上线自检表。
