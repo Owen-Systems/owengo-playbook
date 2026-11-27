@@ -120,7 +120,7 @@ export default defineConfig({
             {
               label: '版本更新日志（Changelog）',
               slug: 'b2b-meta-ads/changelog',
-              badge: { text: 'V0.1.1', variant: 'note' },
+              badge: { text: 'V0.1.2', variant: 'note' },
             },
             {
               label: '核心实战（7 章）',

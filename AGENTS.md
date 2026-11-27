@@ -1,6 +1,6 @@
 # AGENTS.md — 仓库工程与内容维护铁律
 
-本文件定义了 **OwenGo Playbook（Owen 的出海实战活文档）** 在所有人工撰写与 AI Agent 协作过程中的硬性约束。当前第一册为《外贸 B2B Meta 广告实战指南》（挂载于 `/b2b-meta-ads/`）。任何提交、PR 或内容补全均须严格遵守以下五条铁律。
+本文件定义了 **OwenGo Playbook（Owen 的出海实战活文档）** 在所有人工撰写与 AI Agent 协作过程中的硬性约束。当前第一册为《外贸 B2B Meta 广告实战指南》（挂载于 `/b2b-meta-ads/`）。任何提交、PR 或内容补全均须严格遵守以下五条铁律及核心章节升级规范。
 
 ---
 
@@ -9,7 +9,7 @@
 ### 1. 严禁编造投放数据或案例
 - **禁止**凭空捏造或推算任何未实测的投放指标（如 CPM、CTR、CPC、CPL、CPQL、线索有效率、表单完播率、WhatsApp 回复率、成交金额或 ROAS）。
 - **禁止**使用 AI 生成或 PS 伪造 Meta Ads Manager、Events Manager、Make 或 WhatsApp 对话截图。
-- 尚未产生真实实盘数据的截图槽位、数据对照表与复盘空白区，**必须**显式保留 `[Pending: 待补充真实脱敏素材]` 占位符。
+- 尚未产生真实实盘数据的截图槽位、数据对照表与复盘空白区，**必须**显式保留 `[Pending: 待补充真实脱敏素材]` 或 `[待补充实盘数据]` 占位符。
 - 初始 SOP 草稿中的预算、出价或规则触发值（例如 `$40~$50/组/天`、`> $45` 止损等），在文档中**必须**明确标注为 **“参考阈值（源自初始 SOP 草稿，实盘前需按品类与目标 CPL 校准）”**，不得伪装为真实账户表现。
 
 ### 2. 实战数据与源草稿隔离原则（`[Observed]`）
@@ -40,16 +40,34 @@
 
 ---
 
+## 核心章节升级规范（样板章标准）
+
+后续升级 **第 5 章**、**第 3 章** 及其他核心实战章节时，统一以全站样板章 [src/content/docs/b2b-meta-ads/chapters/04-conditional-lead-form.md](src/content/docs/b2b-meta-ads/chapters/04-conditional-lead-form.md) 为模板，严格按**四段式倒金字塔结构**改写：
+
+1. **首屏：老板 30 秒决策框（TL;DR）**
+   - 直接用结论回答老板最关心的成本、ROI 逻辑或风控取舍，不堆砌铺垫背景；
+   - 用清晰边界表给出“何时立即执行 / 何时过严或暂缓 / 不可突破底线”。
+2. **中段：投手一键复制区（双场景模板）**
+   - 把英文文案、脚本、字段结构、工作流节点参数或表单逻辑拆成可直接复制的代码块；
+   - 按真实外贸业务差异拆分场景（如 **标准批发 / OEM 定制品** vs **工业设备 / 元器件**，或 **海外栈 vs 国内团队栈**），示例阈值必须注明“配置示例，实盘按自身门槛校准”。
+3. **排错与边界清单（Decision Tree）**
+   - 统一采用 `如果 X → 排查 Y → 动作 Z` 句式，聚焦一线高频卡点（花不出钱、垃圾填表、开口率低、CAPI 断链等），禁止泛泛而谈“注意优化”。
+4. **底部：实盘锚点与克制收口**
+   - 挂入 1 个关联至 `/b2b-meta-ads/experiments/` 与 `/b2b-meta-ads/experiments/exp-template/` 的 `[Observed]` 实盘观察对比表，无实盘数据时一律显式填 `[待补充实盘数据]`，截图槽保留 `[Pending: 待补充真实脱敏素材]`；
+   - 章末仅留克制的版本更新指引与主理人联络入口（公众号 / X / 微信通过 `https://owengo.space` 与仓库 Issues 承接），严禁卖课或强推销话术。
+
+---
+
 ## 目录职责地图
 
 | 路径 | 职责说明 |
 | :--- | :--- |
 | `astro.config.mjs` | Starlight 全局配置、正式域名 `https://playbook.owengo.space`、简体中文根语言、分册侧边栏导航 |
 | `src/content.config.ts` | Astro 7 Content Layer 文档集合配置（`docsLoader` + `docsSchema`） |
-| `src/content/docs/index.mdx` | 全站首页（主推第一册《外贸 B2B Meta 广告实战指南》，明确 `V0.1` 版本与 `[Observed]` 承诺） |
+| `src/content/docs/index.mdx` | 全站首页（主推第一册《外贸 B2B Meta 广告实战指南》，明确当前版本与 `[Observed]` 承诺） |
 | `src/content/docs/b2b-meta-ads/index.md` | 第一册总览页（`/b2b-meta-ads/` 挂载入口与完整阅读地图） |
 | `src/content/docs/b2b-meta-ads/changelog.md` | 第一册版本迭代更新日志（每次实质更新必改） |
-| `src/content/docs/b2b-meta-ads/chapters/` | 第一册 7 大核心实战章节（`01`–`07`） |
+| `src/content/docs/b2b-meta-ads/chapters/` | 第一册 7 大核心实战章节（`01`–`07`，第 4 章为全站四段式样板章） |
 | `src/content/docs/b2b-meta-ads/templates/` | 第一册 12 份开箱即用 SOP 模板（`index.md` + `01`–`12`） |
 | `src/content/docs/b2b-meta-ads/experiments/` | 第一册脱敏实战实验区（规范说明 + `exp-template.md` + 后续 `[Observed]` 实验记录） |
 | `public/robots.txt` | 搜索引擎抓取规则与 Sitemap 指引（`https://playbook.owengo.space/sitemap-index.xml`） |
