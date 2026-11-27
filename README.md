@@ -39,7 +39,7 @@
 
 ## 本地开发与构建
 
-本站点基于 **Astro Starlight** 构建，纯静态输出，零后端依赖，兼容 Cloudflare Pages 静态托管。
+本站点基于 **Astro Starlight** 构建，纯静态输出，零后端依赖，支持 **Cloudflare Workers Static Assets**（通过根目录 `wrangler.jsonc`）及 Cloudflare Pages 静态托管。
 
 ```bash
 # 1. 安装依赖
@@ -55,9 +55,14 @@ npm run build
 npm run preview
 ```
 
-### Cloudflare Pages 构建参考参数
-- **Build command**: `npm run build`
-- **Build output directory**: `dist`
+### Cloudflare 部署参考参数
+- **Cloudflare Workers（Static Assets，推荐，已配置 `wrangler.jsonc`）**：
+  - **Build command**: `npm run build`
+  - **Deploy command**: `npx wrangler deploy`
+  - **静态资源目录**：`./dist`（无 `main` 入口，跳过 SSR 适配器自动配置）
+- **Cloudflare Pages（传统静态项目）**：
+  - **Build command**: `npm run build`
+  - **Build output directory**: `dist`
 
 ---
 
