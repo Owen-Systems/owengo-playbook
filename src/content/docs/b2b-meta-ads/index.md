@@ -1,9 +1,9 @@
 ---
 title: 第一册总览：《外贸 B2B Meta 广告实战指南》
-description: OwenGo Playbook 第一册（V0.1.2）：聚焦 Meta Andromeda 算法下的 B2B 精准获客闭环（Broad + Conditional Logic + CAPI），含 7 章实战、12 份模板与脱敏实验区。
+description: OwenGo Playbook 第一册（V0.1.3）：聚焦 Meta Andromeda 算法下的 B2B 精准获客闭环（Broad + Conditional Logic + CAPI），含 7 章实战、12 份模板、2 款在线工具与脱敏实验区。
 ---
 
-:::note[所属系列：OwenGo Playbook 第一册 · 当前版本 V0.1.2 · 2026-11-27 更新]
+:::note[所属系列：OwenGo Playbook 第一册 · 当前版本 V0.1.3 · 2026-11-28 更新]
 本手册独立挂载于 `/b2b-meta-ads/`，为 **Owen 的出海实战活文档（Living Playbook）** 的第一册主推实战指南。站点预留了独立路由结构，后续同域名 `https://playbook.owengo.space` 下新增其他出海专题手册时，本手册所有 URL 均可长期保持稳定不变。
 :::
 
@@ -29,8 +29,9 @@ description: OwenGo Playbook 第一册（V0.1.2）：聚焦 Meta Andromeda 算�
 | [第 6 章](/b2b-meta-ads/chapters/06-scaling-and-risk-rules/) | 科学放量与夜间风控：ABO 到 CBO 常青池 | Post ID 提取、CBO 预算控制、3 套规则、[模板 11](/b2b-meta-ads/templates/11-automated-rules-and-reporting/) |
 | [第 7 章](/b2b-meta-ads/chapters/07-sales-follow-up-sop/) | 临门一脚：业务承接、背调与 48 小时分级 SOP | 5 分钟破冰、3 分钟背调、7 天追单、[模板 12](/b2b-meta-ads/templates/12-whatsapp-scripts-and-sla/) |
 
-### 二、配套模板、实验区与版本日志
+### 二、在线工具、配套模板、实验区与版本日志
 
+- **在线实战工具（零后端纯静态）**：前往 [在线工具总览](/b2b-meta-ads/tools/)（含 [CPQL 与自动化规则阈值计算器](/b2b-meta-ads/tools/cpql-rule-calculator/)、[WhatsApp 预填链接生成器](/b2b-meta-ads/tools/wa-link-generator/)）
 - **直接取用可复制模板**：前往 [配套模板库总览（12 份）](/b2b-meta-ads/templates/)
 - **追踪实盘 A/B 实验**：前往 [脱敏实战实验区](/b2b-meta-ads/experiments/) 与 [标准实验记录模板（EXP）](/b2b-meta-ads/experiments/exp-template/)
 - **追踪每周修订进度**：查看 [版本更新日志（Changelog）](/b2b-meta-ads/changelog/)

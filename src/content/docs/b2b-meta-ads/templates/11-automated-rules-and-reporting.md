@@ -3,7 +3,7 @@ title: 11 赛马止损决策表、自动化规则与 B2B 数据列
 description: 对应第 6 章：48–72 小时 ABO 赛马判定、3 套 Meta Automated Rules 完整参数及 B2B 自定义审计报表列。
 ---
 
-> 对应章节：[第 6 章：科学放量与夜间风控——从 ABO 测试到 CBO 常青池](/b2b-meta-ads/chapters/06-scaling-and-risk-rules/) ｜ 状态：SOP 已就绪（源自附件草稿 A.2 & A.4）
+> 对应章节：[第 6 章：科学放量与夜间风控——从 ABO 测试到 CBO 常青池](/b2b-meta-ads/chapters/06-scaling-and-risk-rules/) ｜ 在线工具：[CPQL 与自动化规则阈值计算器](/b2b-meta-ads/tools/cpql-rule-calculator/) ｜ 状态：SOP 已就绪（源自附件草稿 A.2 & A.4）
 
 :::caution[参考阈值校准提示]
 下表涉及的具体美元数值（如 `> $45`、`< $35`、`> $50`、`$300`、`$60`）均是基于“目标单条 CPL ≈ $30~$35”示例场景设定的 **参考阈值**。在账户后台配置前，务必按你自身产品的真实目标 CPL 按比例重算。

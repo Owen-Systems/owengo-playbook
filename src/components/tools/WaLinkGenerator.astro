@@ -1,0 +1,188 @@
+---
+// 纯前端 WhatsApp B2B 预填话术链接生成器（零后端、支持 End Card A 与群通知直链测试）
+---
+
+<div class="not-content owen-tool" data-owen-wa-tool>
+  <div class="owen-tool-header">
+    <span class="owen-tool-badge">本地编码生成 · 自动剥离 + 号与空格</span>
+    <div class="owen-tool-presets">
+      <span class="owen-tool-presets-label">填入预设话术：</span>
+      <button type="button" class="owen-btn" data-wa-preset="sceneA">场景 A：标准批发 / OEM</button>
+      <button type="button" class="owen-btn" data-wa-preset="sceneB">场景 B：工业设备 / 元器件</button>
+      <button type="button" class="owen-btn" data-wa-preset="sales5m">业务 5 分钟破冰快捷回拨</button>
+    </div>
+  </div>
+
+  <div class="owen-field" style="margin-bottom: 1rem;">
+    <label for="wa-phone">接收询盘的 WhatsApp 手机号（含国际区号）</label>
+    <input
+      id="wa-phone"
+      class="owen-input"
+      type="text"
+      inputmode="tel"
+      placeholder="例如：+86 138-0013-8000 或 14155550199"
+      value="8613800138000"
+      data-wa-input="phone"
+    />
+    <span class="owen-field-hint" data-wa-out="phoneHint">已自动清洗为纯数字：8613800138000（请将示例号码替换为你自己的真实号码）</span>
+  </div>
+
+  <div class="owen-field">
+    <label for="wa-message">英文预填话术（点击链接后自动填入客户 WhatsApp 输入框）</label>
+    <textarea id="wa-message" class="owen-textarea" data-wa-input="message">Hi, I just submitted the B2B form on Facebook. Please send me the 2026 Wholesale Catalog and MOQ Price List. My company name is: </textarea>
+    <span class="owen-field-hint" data-wa-out="msgHint">当前字符数：143（建议控制在 220 字符以内，降低移动端截断风险）</span>
+  </div>
+
+  <div class="owen-alert" data-wa-out="warn" hidden></div>
+
+  <div class="owen-section-title">生成的 End Card A 完整跳转链接（可直接粘贴到 Meta Instant Form）</div>
+  <div class="owen-code-box" data-wa-out="url"></div>
+
+  <div class="owen-tool-actions">
+    <button type="button" class="owen-btn owen-btn-primary" data-wa-action="copyUrl">复制 wa.me 链接</button>
+    <a class="owen-btn" href="#" target="_blank" rel="noopener noreferrer" data-wa-action="testOpen">在新窗口测试打开 ↗</a>
+    <span class="owen-copy-status" data-wa-out="copyStatus" aria-live="polite"></span>
+  </div>
+
+  <div class="owen-section-title">客户手机端 WhatsApp 输入框预填效果预览</div>
+  <div class="owen-wa-bubble" data-wa-out="preview"></div>
+
+  <div class="owen-section-title">配套 Google Sheets 表格自动清洗公式（参考第 5 章 / 模板 09）</div>
+  <div class="owen-code-box" data-wa-out="formula">=IF(J2="", "", "https://wa.me/" &amp; REGEXREPLACE(TO_TEXT(J2), "[^0-9]", ""))</div>
+  <div class="owen-tool-actions">
+    <button type="button" class="owen-btn" data-wa-action="copyFormula">复制表格清洗公式</button>
+  </div>
+</div>
+
+<script>
+  function initWaTools() {
+    document.querySelectorAll('[data-owen-wa-tool]').forEach((root) => {
+      if (root.getAttribute('data-bound') === 'true') return;
+      root.setAttribute('data-bound', 'true');
+
+      const presets = {
+        sceneA:
+          'Hi, I just submitted the B2B form on Facebook. Please send me the 2026 Wholesale Catalog and MOQ Price List. My company name is: ',
+        sceneB:
+          'Hi, I just submitted an industrial inquiry on Facebook. Please share the Datasheet and technical quotation. My company name is: ',
+        sales5m:
+          'Hi, thanks for your B2B inquiry on Facebook. Sharing our 2026 Catalog & FOB Price List here. Which destination port do you usually ship to?',
+      };
+
+      const phoneEl = root.querySelector('[data-wa-input="phone"]');
+      const msgEl = root.querySelector('[data-wa-input="message"]');
+      const phoneHintEl = root.querySelector('[data-wa-out="phoneHint"]');
+      const msgHintEl = root.querySelector('[data-wa-out="msgHint"]');
+      const warnEl = root.querySelector('[data-wa-out="warn"]');
+      const urlEl = root.querySelector('[data-wa-out="url"]');
+      const previewEl = root.querySelector('[data-wa-out="preview"]');
+      const formulaEl = root.querySelector('[data-wa-out="formula"]');
+      const testOpenEl = root.querySelector('[data-wa-action="testOpen"]');
+      const copyUrlBtn = root.querySelector('[data-wa-action="copyUrl"]');
+      const copyFormulaBtn = root.querySelector('[data-wa-action="copyFormula"]');
+      const copyStatusEl = root.querySelector('[data-wa-out="copyStatus"]');
+
+      let currentUrl = '';
+
+      const copyText = async (text, label) => {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          copyStatusEl.textContent = label;
+          setTimeout(() => {
+            copyStatusEl.textContent = '';
+          }, 2500);
+        } catch {
+          copyStatusEl.textContent = '复制失败，请手动复制上方代码块';
+        }
+      };
+
+      const update = () => {
+        const digits = phoneEl.value.replace(/\D/g, '');
+        const msg = msgEl.value;
+        const msgLen = msg.length;
+
+        const warnings = [];
+        const isLenValid = digits.length >= 8 && digits.length <= 15;
+
+        if (!digits) {
+          phoneHintEl.textContent = '请输入包含国际区号的纯数字手机号（例如中国 86138...，美国 1415...）。';
+          warnings.push('尚未输入有效手机号码，无法生成可跳转的 wa.me 链接。');
+        } else {
+          phoneHintEl.textContent = `已自动清洗为纯数字：${digits}${digits === '8613800138000' ? '（当前为占位示例号码，上线前请务必替换）' : ''}`;
+          if (digits.startsWith('0')) {
+            warnings.push('检测到号码以 0 开头：wa.me 链接必须使用国际区号开头（如中国用 86、英国用 44），且不能保留前导 0。');
+          }
+          if (!isLenValid) {
+            warnings.push(`当前清洗后为 ${digits.length} 位数字，国际标准手机号含区号通常为 8–15 位，请核对是否漏掉区号。`);
+          }
+        }
+
+        msgHintEl.textContent = `当前字符数：${msgLen}（建议控制在 220 字符以内，避免部分移动端截断）`;
+        if (msgLen > 220) {
+          warnings.push('预填英文话术超过 220 字符：部分 iOS/Android 跳转 WhatsApp 时可能出现截断或打开缓慢，建议参考第 4 章精简至 2 句以内。');
+        }
+
+        if (warnings.length > 0) {
+          warnEl.hidden = false;
+          warnEl.textContent = warnings.join(' ');
+        } else {
+          warnEl.hidden = true;
+        }
+
+        if (isLenValid) {
+          const base = `https://wa.me/${digits}`;
+          currentUrl = msg.trim().length > 0 ? `${base}?text=${encodeURIComponent(msg)}` : base;
+          urlEl.textContent = currentUrl;
+          testOpenEl.setAttribute('href', currentUrl);
+          testOpenEl.removeAttribute('aria-disabled');
+          copyUrlBtn.disabled = false;
+        } else {
+          currentUrl = '';
+          urlEl.textContent = '请输入 8–15 位含国际区号的有效手机号以生成链接';
+          testOpenEl.setAttribute('href', '#');
+          testOpenEl.setAttribute('aria-disabled', 'true');
+          copyUrlBtn.disabled = true;
+        }
+
+        previewEl.textContent =
+          msg.trim().length > 0 ? msg : '（当前未设置预填话术，客户点击后将直接进入空白 WhatsApp 对话框）';
+      };
+
+      phoneEl.addEventListener('input', update);
+      msgEl.addEventListener('input', update);
+
+      root.querySelectorAll('[data-wa-preset]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const key = btn.getAttribute('data-wa-preset');
+          if (presets[key]) {
+            msgEl.value = presets[key];
+            update();
+          }
+        });
+      });
+
+      copyUrlBtn.addEventListener('click', () => {
+        if (currentUrl) copyText(currentUrl, '已复制 wa.me 链接');
+      });
+
+      copyFormulaBtn.addEventListener('click', () => {
+        copyText(formulaEl.textContent || '', '已复制表格清洗公式');
+      });
+
+      update();
+    });
+  }
+
+  initWaTools();
+</script>

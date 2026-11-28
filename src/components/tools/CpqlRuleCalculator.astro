@@ -1,0 +1,262 @@
+---
+// 纯前端 B2B CPQL 算账与 Meta Automated Rules 阈值换算组件（零后端、零数据上传）
+---
+
+<div class="not-content owen-tool" data-owen-cpql-tool>
+  <div class="owen-tool-header">
+    <span class="owen-tool-badge">本地浏览器实时计算 · 不上传任何经营数据</span>
+    <div class="owen-tool-presets">
+      <span class="owen-tool-presets-label">快速填入演示情景（非实盘基准）：</span>
+      <button type="button" class="owen-btn" data-preset="wholesale">示例 A：标准批发 / OEM</button>
+      <button type="button" class="owen-btn" data-preset="machinery">示例 B：高客单工业设备</button>
+    </div>
+  </div>
+
+  <div class="owen-tool-grid">
+    <div class="owen-field">
+      <label for="cpql-margin">单笔成交平均毛利（USD）</label>
+      <input id="cpql-margin" class="owen-input" type="number" min="1" step="50" value="2500" data-input="margin" />
+      <span class="owen-field-hint">非订单总金额，请填扣除货值与基本履约成本后的真实毛利。</span>
+    </div>
+
+    <div class="owen-field">
+      <label for="cpql-cac-ratio">允许获客成本占毛利比例（%）</label>
+      <input id="cpql-cac-ratio" class="owen-input" type="number" min="1" max="100" step="1" value="15" data-input="cacRatio" />
+      <span class="owen-field-hint">常见 B2B 冷启动测试可承受比例通常在 10% ~ 25%。</span>
+    </div>
+
+    <div class="owen-field">
+      <label for="cpql-close-rate">合格 B 端 → 最终成单率（%）</label>
+      <input id="cpql-close-rate" class="owen-input" type="number" min="0.5" max="100" step="0.5" value="10" data-input="closeRate" />
+      <span class="owen-field-hint">即每跟进 10 个“有效 B 端”最终能签下多少单（如 10%）。</span>
+    </div>
+
+    <div class="owen-field">
+      <label for="cpql-qual-rate">表单放行 → 合格 B 端有效率（%）</label>
+      <input id="cpql-qual-rate" class="owen-input" type="number" min="1" max="100" step="1" value="40" data-input="qualRate" />
+      <span class="owen-field-hint">启用第 4 章条件逻辑拦截后的预估合格占比。</span>
+    </div>
+  </div>
+
+  <div class="owen-kpi-grid">
+    <div class="owen-kpi-card">
+      <div class="owen-kpi-label">单笔最高可承受获客成本（Max CAC）</div>
+      <div class="owen-kpi-value" data-out="maxCac">$375</div>
+      <div class="owen-kpi-sub">毛利 × 获客占比</div>
+    </div>
+
+    <div class="owen-kpi-card">
+      <div class="owen-kpi-label">目标有效线索成本（Target CPQL）</div>
+      <div class="owen-kpi-value" data-out="targetCpql">$37.5</div>
+      <div class="owen-kpi-sub">核心考核指标：Max CAC × 成单率</div>
+    </div>
+
+    <div class="owen-kpi-card">
+      <div class="owen-kpi-label">目标表观表单成本上限（Target CPL）</div>
+      <div class="owen-kpi-value" data-out="targetCpl">$15.0</div>
+      <div class="owen-kpi-sub">Target CPQL × 表单有效率</div>
+    </div>
+  </div>
+
+  <div class="owen-alert" data-out="guardrail" hidden></div>
+
+  <div class="owen-section-title">冷启动预算与 Meta 后台 3 套 Automated Rules 换算参考</div>
+  <div class="owen-table-wrap">
+    <table class="owen-table">
+      <thead>
+        <tr>
+          <th>配置项目</th>
+          <th>应用范围 / 运行计划</th>
+          <th>建议触发条件（按当前目标 CPL 换算）</th>
+          <th>执行动作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ABO 单组测试日预算参考</strong></td>
+          <td>冷启动沙盒（每组 3~4 条同切角素材）</td>
+          <td data-out="aboBudget">$18 ~ $23 / 组 / 天</td>
+          <td>稳定跑满 48~72 小时做赛马裁决</td>
+        </tr>
+        <tr>
+          <td><strong>CBO 常青池起步日预算参考</strong></td>
+          <td>迁入 3~5 条胜出 Post ID 后使用</td>
+          <td data-out="cboBudget">$54 ~ $90 / 天</td>
+          <td>为各梯队 Ad Set 设 30%~50% 保底花销</td>
+        </tr>
+        <tr>
+          <td><strong>规则 1：夜间 / 日常止损</strong></td>
+          <td>All active ads · Continuously</td>
+          <td data-out="rule1">Today Spend &gt; $22.5 (1.5× CPL) AND Leads &lt; 1</td>
+          <td>Turn off ads（关闭单条空耗广告）</td>
+        </tr>
+        <tr>
+          <td><strong>规则 2：CBO 自动阶梯加预算</strong></td>
+          <td>指定 CBO 系列 · 每日 08:00</td>
+          <td data-out="rule2">Last 3d Leads &gt; 3 AND CPL &lt; $15.0 AND Freq &lt; 2.5</td>
+          <td data-out="rule2Action">每日预算 +15%（参考上限 $150，每日至多 1 次）</td>
+        </tr>
+        <tr>
+          <td><strong>规则 3：成本劣变降级保护</strong></td>
+          <td>指定 CBO 系列 · 每日定时</td>
+          <td data-out="rule3">Last 3d CPL &gt; $21.8 (1.45× CPL) AND Spend &gt; $37.5</td>
+          <td data-out="rule3Action">每日预算 -15%（参考下限 $30，每日至多 1 次）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="owen-tool-actions">
+    <button type="button" class="owen-btn owen-btn-primary" data-action="copy">一键复制当前参数与规则摘要</button>
+    <span class="owen-copy-status" data-out="copyStatus" aria-live="polite"></span>
+  </div>
+</div>
+
+<script>
+  function initCpqlTools() {
+    document.querySelectorAll('[data-owen-cpql-tool]').forEach((root) => {
+      if (root.getAttribute('data-bound') === 'true') return;
+      root.setAttribute('data-bound', 'true');
+
+      const presets = {
+        wholesale: { margin: 2500, cacRatio: 15, closeRate: 10, qualRate: 40 },
+        machinery: { margin: 12000, cacRatio: 12, closeRate: 8, qualRate: 35 },
+      };
+
+      const inputs = {
+        margin: root.querySelector('[data-input="margin"]'),
+        cacRatio: root.querySelector('[data-input="cacRatio"]'),
+        closeRate: root.querySelector('[data-input="closeRate"]'),
+        qualRate: root.querySelector('[data-input="qualRate"]'),
+      };
+
+      const outs = {
+        maxCac: root.querySelector('[data-out="maxCac"]'),
+        targetCpql: root.querySelector('[data-out="targetCpql"]'),
+        targetCpl: root.querySelector('[data-out="targetCpl"]'),
+        guardrail: root.querySelector('[data-out="guardrail"]'),
+        aboBudget: root.querySelector('[data-out="aboBudget"]'),
+        cboBudget: root.querySelector('[data-out="cboBudget"]'),
+        rule1: root.querySelector('[data-out="rule1"]'),
+        rule2: root.querySelector('[data-out="rule2"]'),
+        rule2Action: root.querySelector('[data-out="rule2Action"]'),
+        rule3: root.querySelector('[data-out="rule3"]'),
+        rule3Action: root.querySelector('[data-out="rule3Action"]'),
+        copyStatus: root.querySelector('[data-out="copyStatus"]'),
+      };
+
+      let latestSummary = '';
+
+      const clamp = (val, min, max) => {
+        const n = Number(val);
+        if (!Number.isFinite(n)) return min;
+        return Math.min(Math.max(n, min), max);
+      };
+
+      const fmtUsd = (val) => {
+        if (val >= 100) return '$' + Math.round(val).toLocaleString('en-US');
+        return '$' + val.toFixed(1);
+      };
+
+      const round10 = (val) => Math.ceil(val / 10) * 10;
+
+      const recalc = () => {
+        const margin = clamp(inputs.margin.value, 1, 10000000);
+        const cacRatio = clamp(inputs.cacRatio.value, 1, 100);
+        const closeRate = clamp(inputs.closeRate.value, 0.1, 100);
+        const qualRate = clamp(inputs.qualRate.value, 1, 100);
+
+        const maxCac = margin * (cacRatio / 100);
+        const targetCpql = maxCac * (closeRate / 100);
+        const targetCpl = targetCpql * (qualRate / 100);
+
+        const aboLow = Math.max(10, Math.round(targetCpl * 1.2));
+        const aboHigh = Math.max(aboLow + 5, Math.round(targetCpl * 1.5));
+        const cboLow = aboLow * 3;
+        const cboHigh = aboLow * 5;
+
+        const stopSpend = targetCpl * 1.5;
+        const scaleMaxCap = round10(Math.max(targetCpl * 10, 150));
+        const degradeCpl = targetCpl * 1.45;
+        const degradeSpend = targetCpl * 2.5;
+        const degradeMinCap = round10(Math.max(targetCpl * 2, 30));
+
+        outs.maxCac.textContent = fmtUsd(maxCac);
+        outs.targetCpql.textContent = fmtUsd(targetCpql);
+        outs.targetCpl.textContent = fmtUsd(targetCpl);
+        outs.aboBudget.textContent = `$${aboLow} ~ $${aboHigh} / 组 / 天`;
+        outs.cboBudget.textContent = `$${cboLow} ~ $${cboHigh} / 天`;
+
+        outs.rule1.textContent = `Today Spend > ${fmtUsd(stopSpend)} (1.5× CPL) AND Leads < 1`;
+        outs.rule2.textContent = `Last 3d Leads > 3 AND CPL < ${fmtUsd(targetCpl)} AND Freq < 2.5`;
+        outs.rule2Action.textContent = `每日预算 +15%（参考上限 $${scaleMaxCap}，每日至多 1 次）`;
+        outs.rule3.textContent = `Last 3d CPL > ${fmtUsd(degradeCpl)} (1.45× CPL) AND Spend > ${fmtUsd(degradeSpend)}`;
+        outs.rule3Action.textContent = `每日预算 -15%（参考下限 $${degradeMinCap}，每日至多 1 次）`;
+
+        if (targetCpl < 8) {
+          outs.guardrail.hidden = false;
+          outs.guardrail.textContent =
+            `边界提示：当前反推的 Target CPL 为 ${fmtUsd(targetCpl)}。在 Tier 1 欧美 B2B 市场搭配高意向条件表单时，通常较难长期维持低于 $8 的表观 CPL；建议核对是否低估了单笔毛利、或提高首单起订量（MOQ）。`;
+        } else {
+          outs.guardrail.hidden = true;
+        }
+
+        latestSummary = [
+          '=== OwenGo Playbook · B2B CPQL 与自动化规则参考参数 ===',
+          `输入参数：单笔毛利 ${fmtUsd(margin)} | 获客占比 ${cacRatio}% | 合格成单率 ${closeRate}% | 表单有效率 ${qualRate}%`,
+          `测算结果：Max CAC = ${fmtUsd(maxCac)} | Target CPQL = ${fmtUsd(targetCpql)} | Target CPL = ${fmtUsd(targetCpl)}`,
+          `ABO 单组测试参考预算：$${aboLow} ~ $${aboHigh} / 组 / 天`,
+          `CBO 常青池起步参考预算：$${cboLow} ~ $${cboHigh} / 天`,
+          `规则 1（夜间/日常止损）：All active ads | Today Spend > ${fmtUsd(stopSpend)} AND Leads < 1 -> Turn off ads (Continuously)`,
+          `规则 2（CBO 阶梯加预算）：Last 3d Leads > 3 AND CPL < ${fmtUsd(targetCpl)} AND Freq < 2.5 -> +15% (上限 $${scaleMaxCap}, 每日 08:00)`,
+          `规则 3（成本劣变降级）：Last 3d CPL > ${fmtUsd(degradeCpl)} AND Spend > ${fmtUsd(degradeSpend)} -> -15% (下限 $${degradeMinCap}, Daily)`,
+          '注：以上均为基于输入假设的算术换算参考值，实盘请配合第 6 章人工审计校准。',
+        ].join('\n');
+      };
+
+      Object.values(inputs).forEach((el) => {
+        el.addEventListener('input', recalc);
+      });
+
+      root.querySelectorAll('[data-preset]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const p = presets[btn.getAttribute('data-preset')];
+          if (!p) return;
+          inputs.margin.value = String(p.margin);
+          inputs.cacRatio.value = String(p.cacRatio);
+          inputs.closeRate.value = String(p.closeRate);
+          inputs.qualRate.value = String(p.qualRate);
+          recalc();
+        });
+      });
+
+      const copyBtn = root.querySelector('[data-action="copy"]');
+      copyBtn.addEventListener('click', async () => {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(latestSummary);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = latestSummary;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          outs.copyStatus.textContent = '已复制到剪贴板';
+          setTimeout(() => {
+            outs.copyStatus.textContent = '';
+          }, 2500);
+        } catch {
+          outs.copyStatus.textContent = '复制失败，请手动选中表格参数';
+        }
+      });
+
+      recalc();
+    });
+  }
+
+  initCpqlTools();
+</script>

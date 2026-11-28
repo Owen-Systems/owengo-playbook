@@ -120,7 +120,7 @@ export default defineConfig({
             {
               label: '版本更新日志（Changelog）',
               slug: 'b2b-meta-ads/changelog',
-              badge: { text: 'V0.1.2', variant: 'note' },
+              badge: { text: 'V0.1.3', variant: 'note' },
             },
             {
               label: '核心实战（7 章）',
@@ -207,6 +207,20 @@ export default defineConfig({
                 {
                   label: '12 WA 破冰追单话术与 48h 分级',
                   slug: 'b2b-meta-ads/templates/12-whatsapp-scripts-and-sla',
+                },
+              ],
+            },
+            {
+              label: '在线实战工具（2 款）',
+              items: [
+                { label: '工具总览与隐私说明', slug: 'b2b-meta-ads/tools' },
+                {
+                  label: 'CPQL 与自动化规则计算器',
+                  slug: 'b2b-meta-ads/tools/cpql-rule-calculator',
+                },
+                {
+                  label: 'WhatsApp 预填链接生成器',
+                  slug: 'b2b-meta-ads/tools/wa-link-generator',
                 },
               ],
             },

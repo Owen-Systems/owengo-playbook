@@ -1,0 +1,21 @@
+---
+title: WhatsApp B2B 预填话术链接生成器
+description: 一键清洗国际区号手机号并 URL 编码英文预填话术，生成适用于 Meta 条件逻辑表单 End Card A 的合规 wa.me 跳转链接。
+---
+
+import WaLinkGenerator from '../../../../components/tools/WaLinkGenerator.astro';
+
+> 关联正文：[第 4 章（样板章 End Card A）](/b2b-meta-ads/chapters/04-conditional-lead-form/) ｜ [模板 08（条件表单与链接模板）](/b2b-meta-ads/templates/08-conditional-form-and-wa-link/) ｜ [第 7 章（5 分钟破冰 SOP）](/b2b-meta-ads/chapters/07-sales-follow-up-sop/)
+
+在 Meta Instant Form 的 **End Card A（合格 B 端专属感谢页）** 配置跳转 WhatsApp 时，如果链接里不小心残留了 `+` 号、空格、未编码字符或前导 `0`，部分海外买家的手机端点击后会直接跳转到错误页面或丢失预填文字。使用下方工具生成并先在真机点开自测一次。
+
+<WaLinkGenerator />
+
+---
+
+## Meta 后台粘贴与避坑要点
+
+1. **只贴进 End Card A（合格 B 端出口）**：切勿把业务员 WhatsApp 链接放进被 Q1/Q2 拦截后跳转的 End Card B，避免个人散客直接加到业务员微信/WhatsApp。
+2. **手机号码必须带国际区号且无 `+` 号**：例如中国大陆号码 `13800138000` 须填 `8613800138000`，美国号码填 `14155550199`。
+3. **预填话术保持 2 句以内**：结尾保留 `My company name is: ` 留空给买家顺手补全即可，长段话术在部分旧版客户端容易被截断。
+4. **不要只等客户主动发消息**：即使 End Card A 配好了跳转，仍需配合 [第 5 章零代码推送](/b2b-meta-ads/chapters/05-nocode-capi-loop/)，由业务员在 **5 分钟内主动发送破冰消息**。

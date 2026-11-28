@@ -1,0 +1,25 @@
+---
+title: B2B CPQL 算账与自动化规则阈值计算器
+description: 依据单笔平均毛利、获客占比、成单率与条件表单有效率，实时换算目标 CPQL、CPL 上限及 Meta Automated Rules 止损/加减预算阈值。
+---
+
+import CpqlRuleCalculator from '../../../../components/tools/CpqlRuleCalculator.astro';
+
+> 关联正文：[第 1 章（算账模型）](/b2b-meta-ads/chapters/01-algorithm-and-mindset/) ｜ [第 6 章（CBO 放量与 3 套自动化规则）](/b2b-meta-ads/chapters/06-scaling-and-risk-rules/) ｜ [模板 11（规则参数表）](/b2b-meta-ads/templates/11-automated-rules-and-reporting/)
+
+不要直接照抄指南草稿里的 `$45 / $35 / $50` 示例美元阈值——不同行业客单毛利和转化率差异极大。输入你自家产线的**单笔毛利、可承受获客占比、成单率与条件表单有效率**，即可立即算出适合自己账户的风控参考线。
+
+<CpqlRuleCalculator />
+
+---
+
+## 核心换算公式与使用边界
+
+1. **最大获客成本（Max CAC）** `= 单笔平均毛利 × 允许获客成本占比`
+2. **目标有效线索成本（Target CPQL）** `= Max CAC × 合格 B 端成单率`（用于评价**条件表单 + 业务分级**后的真实获客成本）
+3. **目标表观表单成本上限（Target CPL）** `= Target CPQL × 表单放行有效率`（用于换算 Meta Ads Manager 后台 `Automated Rules` 的前端花费/CPL 触发条件）
+
+:::caution[使用提醒]
+- 预设按钮中的数字仅为**演示占位情景（非实盘基准）**，上线前请务必替换为企业自身的真实平均毛利与销售成单数据；
+- 若企业主营超长周期非标设备（成交周期超过 3–6 个月），建议先按保守成单率估算 Target CPQL，待跑满 1 个完整跟进周期后再做复盘校准。
+:::

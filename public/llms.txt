@@ -1,6 +1,6 @@
 # OwenGo Playbook — Owen 的出海实战活文档（Living Playbook）
 
-> 当前版本：V0.1.2 | 语言：简体中文 (zh-CN) | 正式域名：https://playbook.owengo.space
+> 当前版本：V0.1.3 | 语言：简体中文 (zh-CN) | 正式域名：https://playbook.owengo.space
 > 出品：Owen Systems（Owen 主理） | 主站：https://owengo.space | 仓库：https://github.com/Owen-Systems/owengo-playbook
 > 定位：Owen 的出海实战活文档（Living Playbook）。当前第一册《外贸 B2B Meta 广告实战指南》独立挂载于 `/b2b-meta-ads/`，围绕 Meta 现行广告检索排序机制，提供“素材即定向（Broad）+ 表单加摩擦（Conditional Logic）+ 转化回传（CAPI）”全链路可执行 SOP 与可复制模板，并预留多册扩展空间。
 > 数据规范：所有真实投放实验记录均须严格脱敏并标注 `[Observed]`；SOP 默认参数与算术对照表标注为参考阈值/推演模型；未补充实测数据处标注 `[Pending]` 或 `[待补充实盘数据]`。
@@ -10,7 +10,7 @@
 - [Owen 主站 / 项目总览](https://owengo.space): Owen Systems 主理人主站与项目总索引
 - [首页 · OwenGo Playbook 总览](/): 站点定位、第一册主推入口、全链路架构图与核心三角方法论
 - [第一册总览：《外贸 B2B Meta 广告实战指南》](/b2b-meta-ads/): 第一册完整目录、核心三角与阅读路径
-- [版本更新日志（Changelog）](/b2b-meta-ads/changelog/): V0.1 / V0.1.1 / V0.1.2 更新记录与后续迭代计划
+- [版本更新日志（Changelog）](/b2b-meta-ads/changelog/): V0.1 / V0.1.1 / V0.1.2 / V0.1.3 更新记录与后续迭代计划
 
 ## 第一册核心实战（7 章）
 
@@ -21,6 +21,12 @@
 - [第 5 章：零代码数据闭环——秒级推送与 CAPI 回传驯化算法](/b2b-meta-ads/chapters/05-nocode-capi-loop/): 5 分钟响应法则、Make + Google Sheets / 国内飞书多维表格双栈架构、小预算替代信号与上线 4 步测试验收
 - [第 6 章：科学放量与夜间风控——从 ABO 测试到 CBO 常青池](/b2b-meta-ads/chapters/06-scaling-and-risk-rules/): 48-72h 赛马裁决、Post ID 提取与 Use Existing Post、CBO 常青池及 3 套自动化风控规则
 - [第 7 章：临门一脚——外贸业务端承接、背调与 48 小时分级 SOP](/b2b-meta-ads/chapters/07-sales-follow-up-sop/): 5 分钟 WhatsApp 破冰公式与模板、3 分钟背调法、48 小时线索分级 SLA 与 7 天追单节奏
+
+## 第一册在线实战工具（零后端纯静态）
+
+- [在线实战工具总览](/b2b-meta-ads/tools/): 纯浏览器本地运行、零数据上传的 B2B 投放小工具集合
+- [B2B CPQL 算账与自动化规则阈值计算器](/b2b-meta-ads/tools/cpql-rule-calculator/): 按单笔毛利、获客占比、成单率与有效率实时计算 Target CPQL/CPL 与 Meta 3 套风控规则参考阈值
+- [WhatsApp B2B 预填话术链接生成器](/b2b-meta-ads/tools/wa-link-generator/): 国际区号纯数字清洗与英文话术 URL 编码生成，支持 End Card A 与群卡片直链真机测试
 
 ## 第一册配套模板库（12 份）
 

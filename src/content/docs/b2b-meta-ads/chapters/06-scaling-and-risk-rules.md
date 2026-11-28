@@ -83,7 +83,8 @@ CBO（Advantage+ Campaign Budget）常青池负责承接所有从 ABO 跑出来�
 
 ---
 
-## 本章配套模板与下一步
+## 本章配套工具、模板与下一步
 
+- 在线工具（按自家毛利换算 3 套规则阈值）：[B2B CPQL 算账与自动化规则阈值计算器](/b2b-meta-ads/tools/cpql-rule-calculator/)
 - 配套模板：[11 赛马止损决策表、3 套自动化规则与 B2B 自定义数据列](/b2b-meta-ads/templates/11-automated-rules-and-reporting/)
 - 下一章：[第 7 章：临门一脚——外贸业务端承接、背调与 48 小时分级 SOP](/b2b-meta-ads/chapters/07-sales-follow-up-sop/)

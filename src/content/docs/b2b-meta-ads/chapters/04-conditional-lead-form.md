@@ -193,7 +193,8 @@ Button URL:  https://你的设备官网或技术资料库地址
 
 ---
 
-### 配套模板与下一章
+### 配套模板、在线工具与下一章
+- 在线生成 End Card A 跳转链接：[WhatsApp B2B 预填话术链接生成器](/b2b-meta-ads/tools/wa-link-generator/)
 - 跨品类 Q2 补充变体：[08 高意向条件逻辑英文表单与 WhatsApp 预填链接模板](/b2b-meta-ads/templates/08-conditional-form-and-wa-link/)
 - 下一章（打通 3 秒推送与 `QualifiedLead` 回传）：[第 5 章：零代码数据闭环——秒级推送与 CAPI 回传驯化算法](/b2b-meta-ads/chapters/05-nocode-capi-loop/)
 

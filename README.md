@@ -1,6 +1,6 @@
 # OwenGo Playbook — Owen 的出海实战活文档（Living Playbook）
 
-> **当前版本：`V0.1.2`（第 4 章样板章重构与章节规范沉淀）** ｜ **Owen Systems 出品 · Owen 主理**
+> **当前版本：`V0.1.3`（上线首批 2 款零后端在线实战工具）** ｜ **Owen Systems 出品 · Owen 主理**
 >
 > **Owen 主站**：[https://owengo.space](https://owengo.space) ｜ **在线文档**：[https://playbook.owengo.space](https://playbook.owengo.space) ｜ **GitHub**：[Owen-Systems/owengo-playbook](https://github.com/Owen-Systems/owengo-playbook)
 >
@@ -21,8 +21,9 @@
 | 模块 | 仓库路径 | 在线路由 | 内容说明 |
 | :--- | :--- | :--- | :--- |
 | **第一册总览** | `src/content/docs/b2b-meta-ads/index.md` | `/b2b-meta-ads/` | 《外贸 B2B Meta 广告实战指南》总目录与阅读索引 |
-| **核心实战（7 章）** | `src/content/docs/b2b-meta-ads/chapters/` | `/b2b-meta-ads/chapters/` | 第 1 章底层重构（含适用边界与 CPQL 算账模型）→ 第 2 章国家梯队与合规防封 → 第 3 章前 3 秒防 C 端素材 → 第 4 章条件逻辑表单与跨品类改写 → 第 5 章 Make/飞书 + CAPI 闭环 → 第 6 章 CBO 放量与风控 → 第 7 章业务承接与 48h 分级 |
+| **核心实战（7 章）** | `src/content/docs/b2b-meta-ads/chapters/` | `/b2b-meta-ads/chapters/` | 第 1 章底层重构（含适用边界与 CPQL 算账模型）→ 第 2 章国家梯队与合规防封 → 第 3 章前 3 秒防 C 端素材 → 第 4 章条件逻辑表单（样板章）→ 第 5 章 Make/飞书 + CAPI 闭环 → 第 6 章 CBO 放量与风控 → 第 7 章业务承接与 48h 分级 |
 | **配套模板库（12 份）** | `src/content/docs/b2b-meta-ads/templates/` | `/b2b-meta-ads/templates/` | 覆盖买家画像、国家黑名单、命名生成器、上线自检、中英文视频脚本、B-Roll 清单、文案库、跨品类条件表单与 WA 链接、询盘管理表、海外/国内双栈 Make/CAPI 蓝图、自动化规则、WhatsApp 破冰与分级 SLA |
+| **在线实战工具（2 款）** | `src/content/docs/b2b-meta-ads/tools/` | `/b2b-meta-ads/tools/` | 零后端浏览器工具：B2B CPQL 与自动化规则阈值计算器、WhatsApp B2B 预填话术链接生成器 |
 | **脱敏实战实验区** | `src/content/docs/b2b-meta-ads/experiments/` | `/b2b-meta-ads/experiments/` | 沉淀带 `[Observed]` 标签与严格脱敏处理的实盘 A/B 对照实验（已备好 `EXP` 标准实验记录模板） |
 | **版本更新日志** | `src/content/docs/b2b-meta-ads/changelog.md` | `/b2b-meta-ads/changelog/` | 追踪每次 SOP 修订、新增模板与实验结论的版本演进 |
 

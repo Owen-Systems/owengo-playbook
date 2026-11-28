@@ -3,7 +3,7 @@ title: 08 高意向条件逻辑英文表单与 WhatsApp 预填链接模板
 description: 对应第 4 章：Higher Intent + Conditional Logic Q1–Q4 完整英文题目、分支规则、End Card A/B 文案与 wa.me 链接格式。
 ---
 
-> 对应章节：[第 4 章：询盘防火墙——高意向条件表单（样板章）](/b2b-meta-ads/chapters/04-conditional-lead-form/) ｜ 状态：SOP 已就绪（源自附件草稿 C.1 & C.2；完整双场景代码块见第 4 章）
+> 对应章节：[第 4 章：询盘防火墙——高意向条件表单（样板章）](/b2b-meta-ads/chapters/04-conditional-lead-form/) ｜ 在线工具：[WhatsApp 预填话术链接生成器](/b2b-meta-ads/tools/wa-link-generator/) ｜ 状态：SOP 已就绪（源自附件草稿 C.1 & C.2；完整双场景代码块见第 4 章）
 
 ## 1. 表单基础设置
 
