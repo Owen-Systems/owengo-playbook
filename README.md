@@ -1,6 +1,6 @@
 # OwenGo Playbook — Owen 的出海实战活文档（Living Playbook）
 
-> **当前版本：`V0.1.3`（上线首批 2 款零后端在线实战工具）** ｜ **Owen Systems 出品 · Owen 主理**
+> **当前版本：`V0.1.4`（Issue #1：第 5 章样板章重构、模板 09 CSV 下载与页面级 JSON-LD）** ｜ **Owen Systems 出品 · Owen 主理**
 >
 > **Owen 主站**：[https://owengo.space](https://owengo.space) ｜ **在线文档**：[https://playbook.owengo.space](https://playbook.owengo.space) ｜ **GitHub**：[Owen-Systems/owengo-playbook](https://github.com/Owen-Systems/owengo-playbook)
 >

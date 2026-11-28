@@ -1,0 +1,2 @@
+﻿Meta Lead ID,提交时间,广告系列 / 素材来源,客户姓名,公司名称,业务角色 (Q1),预估采购量 (Q2),采购产品线 (Q3),官网 / LinkedIn / 工作邮箱 (Q4),WhatsApp 电话,预填邮箱,一键 WhatsApp,线索质量状态,CAPI 回传状态
+EXAMPLE_ONLY_DELETE_BEFORE_USE,2026-11-28 09:30,Desk_ABO_T1-US_Leads_202611 / ANG1-VID-01,Sample Buyer,Example Wholesale Co.,Importer / Wholesale Distributor,50 - 200 Units (Trial MOQ),Standard Wholesale Stock,https://example-buyer.com,'+14155550199,buyer@example-buyer.com,"=IF(J2="""","""",""https://wa.me/""&REGEXREPLACE(TO_TEXT(J2),""[^0-9]"",""""))",待跟进,未回传

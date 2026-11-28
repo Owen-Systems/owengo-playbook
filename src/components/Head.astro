@@ -1,0 +1,71 @@
+---
+import Default from '@astrojs/starlight/components/Head.astro';
+
+const route = Astro.locals.starlightRoute;
+const pathname = Astro.url.pathname;
+const entryData = route?.entry?.data;
+const isHome = pathname === '/' || route?.id === '' || route?.id === 'index';
+const is404 = pathname === '/404.html' || pathname === '/404/' || route?.id === '404';
+const isToolApp = pathname.startsWith('/b2b-meta-ads/tools/') && pathname !== '/b2b-meta-ads/tools/' && pathname !== '/b2b-meta-ads/tools';
+
+const canonicalUrl = new URL(pathname, Astro.site ?? 'https://playbook.owengo.space').toString();
+const title = entryData?.title ?? route?.siteTitle ?? 'OwenGo Playbook';
+const description =
+  entryData?.description ??
+  'OwenGo Playbook — Owen Systems 出品的外贸 B2B Meta 广告实战活文档（Living Playbook）。';
+
+let pageSchema = null;
+
+if (!isHome && !is404) {
+  if (isToolApp) {
+    pageSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: title,
+      description,
+      url: canonicalUrl,
+      inLanguage: 'zh-CN',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      isAccessibleForFree: true,
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Owen Systems',
+        url: 'https://owengo.space',
+      },
+    };
+  } else {
+    pageSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'TechArticle',
+      headline: title,
+      description,
+      url: canonicalUrl,
+      inLanguage: 'zh-CN',
+      author: {
+        '@type': 'Person',
+        name: 'Owen',
+        url: 'https://owengo.space',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Owen Systems',
+        url: 'https://owengo.space',
+      },
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'OwenGo Playbook',
+        url: 'https://playbook.owengo.space',
+      },
+    };
+  }
+}
+---
+
+<Default />
+{pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}

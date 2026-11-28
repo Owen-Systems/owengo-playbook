@@ -69,8 +69,10 @@
 | `src/content/docs/b2b-meta-ads/changelog.md` | 第一册版本迭代更新日志（每次实质更新必改） |
 | `src/content/docs/b2b-meta-ads/chapters/` | 第一册 7 大核心实战章节（`01`–`07`，第 4 章为全站四段式样板章） |
 | `src/content/docs/b2b-meta-ads/templates/` | 第一册 12 份开箱即用 SOP 模板（`index.md` + `01`–`12`） |
+| `src/components/Head.astro` | Starlight `<head>` 覆盖组件：为文档页与在线工具页注入页面级 JSON-LD（`TechArticle` / `WebApplication`） |
 | `src/components/tools/` | 零后端纯前端交互工具 Astro 组件（Client-side 计算与链接编码） |
 | `src/content/docs/b2b-meta-ads/tools/` | 第一册在线实战工具区（`/b2b-meta-ads/tools/` 挂载入口与各工具页） |
 | `src/content/docs/b2b-meta-ads/experiments/` | 第一册脱敏实战实验区（规范说明 + `exp-template.md` + 后续 `[Observed]` 实验记录） |
+| `public/downloads/` | 静态可下载配套模板文件（如标准 UTF-8 CSV 询盘表头模板） |
 | `public/robots.txt` | 搜索引擎抓取规则与 Sitemap 指引（`https://playbook.owengo.space/sitemap-index.xml`） |
 | `public/llms.txt` | 面向 AI 搜索与大模型检索的站点结构索引 |

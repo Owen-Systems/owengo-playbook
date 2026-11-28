@@ -7,6 +7,18 @@ description: 记录《外贸 B2B Meta 广告实战指南》每个版本的章节
 
 ---
 
+## V0.1.4（2026-11-28）— 第 5 章样板章重构、模板 09 CSV 下载与页面级 JSON-LD
+
+### 已完成内容
+1. **[第 5 章样板章重构](/b2b-meta-ads/chapters/05-nocode-capi-loop/)（对应 [Issue #1](https://github.com/Owen-Systems/owengo-playbook/issues/1)）**：
+   - 按 `AGENTS.md` 四段式标准重写：新增“老板 30 秒决策框（5 分钟响应 + 48h 分级 + 中小预算替代信号边界）”、“海外 `Google Sheets` vs 国内 `飞书多维表格` 双栈一键复制代码区”、4 条 `如果 X → 排查 Y → 动作 Z` CAPI 排错决策树，以及关联 `experiments/` 的 `[Observed]` 实盘占位表。
+2. **模板 09 `.csv` 静态表头下载**：
+   - 新增 `/downloads/meta-b2b-lead-tracker-template.csv`（UTF-8 with BOM，兼容 Excel / Google Sheets / 飞书多维表格），并在 [模板 09](/b2b-meta-ads/templates/09-lead-tracker-capi-sheet/) 与第 5 章提供直达下载链接。
+3. **页面级 JSON-LD 结构化数据**：
+   - 新增 `src/components/Head.astro` 覆盖组件并接入 `astro.config.mjs`：自动为各文档页面生成 `TechArticle` 结构化数据，为在线工具页生成 `WebApplication` 结构化数据，提升搜索引擎与 AI 检索引用的语义精准度。
+
+---
+
 ## V0.1.3（2026-11-28）— 上线首批 2 款零后端在线实战工具
 
 ### 已完成内容

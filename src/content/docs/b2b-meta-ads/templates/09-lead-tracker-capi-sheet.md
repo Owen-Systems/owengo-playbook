@@ -3,7 +3,12 @@ title: 09 Meta 询盘管理与 CAPI 状态表字段模板
 description: 对应第 5 章：飞书多维表格 / Google Sheets 必备字段结构、国际区号单引号防报错规范及 REGEXREPLACE 一键 WhatsApp 公式。
 ---
 
-> 对应章节：[第 5 章：零代码数据闭环——秒级推送与 CAPI 回传驯化算法](/b2b-meta-ads/chapters/05-nocode-capi-loop/) ｜ 状态：SOP 已就绪（源自附件草稿 D）
+> 对应章节：[第 5 章：零代码数据闭环——秒级推送与 CAPI 回传驯化算法（样板章）](/b2b-meta-ads/chapters/05-nocode-capi-loop/) ｜ 状态：SOP 已就绪（源自附件草稿 D）
+
+:::tip[开箱即用表头下载]
+不想逐列手动建表？直接下载带 UTF-8 BOM 的标准表头模板（包含下表全部 14 列及示例清洗公式行，导入后请删除第 2 行示例数据）：
+<a href="/downloads/meta-b2b-lead-tracker-template.csv" download="meta-b2b-lead-tracker-template.csv">一键下载标准 CSV 表头模板（兼容 Excel / Google Sheets / 飞书多维表格）</a>
+:::
 
 ## 1. 核心数据表字段清单（Google Sheets / 飞书多维表格通用）
 
